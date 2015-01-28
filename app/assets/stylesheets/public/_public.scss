@@ -1,7 +1,7 @@
 @import "../common/lib/bootstrap/variables";
 @import "../common/lib/bootstrap/mixins";
 #connect {
-  background:$blue;
+  background:#2598FE;
   padding:$baseLineHeight * 2 0;
   color:lighten($blue,40%);
   text-align:center;
@@ -19,7 +19,7 @@
     .span2 {
       width: 33%;
       float: left;
-      padding-top: 30px;
+      padding-top: 40px;
     }
   }
   .icon-large {
