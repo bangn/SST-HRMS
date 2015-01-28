@@ -14,6 +14,12 @@
     border-bottom:1px lighten($blue,10%) solid;
     padding-top:$baseLineHeight;
     padding-bottom:$baseLineHeight * 2;
+
+    .span2 {
+      width: 33%;
+      float: left;
+      padding-top: 30px;
+    }
   }
   .icon-large {
     color:lighten($blue,40%);
