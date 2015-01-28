@@ -1,7 +1,24 @@
 @import "../common/lib/bootstrap/variables";
 @import "../common/lib/bootstrap/mixins";
+#my-carousel {
+  @media (min-width: 992px) {
+    .container {
+      width: 992px;
+    }
+  }
+  .container {
+    margin-bottom: 30px;
+  }
+  .carousel-control {
+    margin-top:0;
+    border:0px;
+    background:transparent;
+    text-shadow:0px -1px 0px rgba(0,0,0,0.5);
+  }  
+}
+
 #connect {
-  background:#2598FE;
+  background:$blue;
   padding:$baseLineHeight * 2 0;
   color:lighten($blue,40%);
   text-align:center;
@@ -17,7 +34,7 @@
     padding-bottom:$baseLineHeight * 2;
 
     .span2 {
-      width: 33%;
+      width: 25%;
       float: left;
       padding-top: 40px;
     }
