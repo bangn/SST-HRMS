@@ -1,2 +1,2 @@
 //= require_tree "./common/"
-//= require "./home.css"
+//= require_tree "./public/"

@@ -1,0 +1,70 @@
+@import "../common/lib/bootstrap/variables";
+@import "../common/lib/bootstrap/mixins";
+#connect {
+  background:$blue;
+  padding:$baseLineHeight * 2 0;
+  color:lighten($blue,40%);
+  text-align:center;
+  position:relative;
+  .sectionheading {
+    color:$white;
+  }
+  .socialicons {
+    border-top:1px lighten($blue,10%) solid;
+    border-bottom:1px lighten($blue,10%) solid;
+    padding-top:$baseLineHeight;
+    padding-bottom:$baseLineHeight * 2;
+  }
+  .icon-large {
+    color:lighten($blue,40%);
+    text-shadow:0px -1px 0px rgba(0,0,0,0.3);
+    top: 0px;
+    left: 0px;
+    padding-right: 0px;
+  }
+  a {
+    color:lighten($blue,40%);
+    text-decoration:none;
+    @include transition(color 500ms ease);
+    &:hover,
+    &:focus {
+      color:$white;
+      .icon-large {
+        color:$white;
+      }
+    }
+    h4 {
+      span {
+        margin-left: -3px;
+      }
+    }
+  }
+
+  overflow:visible;
+  &:before {
+    content: " ";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left:-20px;
+    border-width: 20px;
+    border-color: $white transparent transparent transparent;
+    border-style: solid;
+    z-index:5;
+  }
+  &:after {
+    content: " ";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    margin-left:-20px;
+    border-width: 20px;
+    border-color: $blue transparent transparent transparent;
+    border-style: solid;
+    z-index:5;
+  }
+}
