@@ -1,24 +1,38 @@
 @import "../common/lib/bootstrap/variables";
 @import "../common/lib/bootstrap/mixins";
 #my-carousel {
-  @media (min-width: 992px) {
-    .container {
-      width: 992px;
-    }
+  font-style: italic;
+  .span8 {
+    width:620px;
+    display: inline-block;
   }
+
+  .span4 {
+    width:440px;
+    display:inline-block;
+    float: right;
+  }
+
   .container {
     margin-bottom: 30px;
   }
+
   .carousel-control {
     margin-top:0;
     border:0px;
     background:transparent;
     text-shadow:0px -1px 0px rgba(0,0,0,0.5);
   }  
+
+  .carousel-inner {
+    img {
+      height: 423px;
+    }
+  }
 }
 
 #connect {
-  background:$blue;
+  background:#2098f5;;
   padding:$baseLineHeight * 2 0;
   color:lighten($blue,40%);
   text-align:center;
@@ -30,13 +44,11 @@
   .socialicons {
     border-top:1px lighten($blue,10%) solid;
     border-bottom:1px lighten($blue,10%) solid;
-    padding-top:$baseLineHeight;
-    padding-bottom:$baseLineHeight * 2;
 
     .span2 {
       width: 25%;
       float: left;
-      padding-top: 40px;
+      padding-top: 30px;
     }
   }
   .icon-large {
@@ -62,33 +74,5 @@
         margin-left: -3px;
       }
     }
-  }
-
-  overflow:visible;
-  &:before {
-    content: " ";
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left:-20px;
-    border-width: 20px;
-    border-color: $white transparent transparent transparent;
-    border-style: solid;
-    z-index:5;
-  }
-  &:after {
-    content: " ";
-    width: 0;
-    height: 0;
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    margin-left:-20px;
-    border-width: 20px;
-    border-color: $blue transparent transparent transparent;
-    border-style: solid;
-    z-index:5;
   }
 }

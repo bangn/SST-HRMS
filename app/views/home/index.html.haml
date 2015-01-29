@@ -1,23 +1,21 @@
 %article#my-carousel
   .container
     %section
-      #carousel-teams.carousel.slide{"data-ride" => "carousel"}
-        %ul.carousel-indicators
-          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-item"}
-          %li{"data-slide-to" => "1", "data-target" => "#carousel-item"}
-          %li{"data-slide-to" => "2", "data-target" => "#carousel-item"}
-        .carousel-inner
-          .item.active
-            = image_tag("image1.jpg", alt: "...")
-            .carousel-caption
-          .item
-            = image_tag("image2.jpg", alt: "...")
-            .carousel-caption
-          .item
-            = image_tag("image3.jpg", alt: "...")
-            .carousel-caption
-        %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-teams", :role => "button"}
-        %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-teams", :role => "button"}
+      .span8
+        #carousel-teams.carousel.slide{"data-ride" => "carousel"}
+          .carousel-inner
+            .item.active
+              = image_tag("image1.jpg", alt: "...")
+            .item
+              = image_tag("image2.jpg", alt: "...")
+            .item
+              = image_tag("image3.jpg", alt: "...")
+          %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-teams", :role => "button"}
+          %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-teams", :role => "button"}
+      .span4#actions
+        %h2
+          What's Happening
+        .activity-stream
           
 %article#connect
   .container
@@ -29,21 +27,21 @@
             with us
           .span2
             %a{:href=>"https://twitter.com/strongtie", :target => "_blank"}
-              %i.fa.fa-twitter.icon-large.fa-3x
+              %i.fa.fa-twitter.icon-large.fa-5x
               %h4
                 %span Twitter
           .span2
             %a{:href=>"https://www.facebook.com/strongtie", :target => "_blank"}
-              %i.fa.fa-facebook.icon-large.fa-3x
+              %i.fa.fa-facebook.icon-large.fa-5x
               %h4
                 %span Facebook
           .span2
             %a{:href=>"https://www.youtube.com/user/strongtie", :target => "_blank"}
-              %i.fa.fa-youtube.icon-large.fa-3x
+              %i.fa.fa-youtube.icon-large.fa-5x
               %h4
                 %span Youtube
           .span2
             %a{:href=>"https://www.linkedin.com/company/simpson-strong-tie", :target => "_blank"}
-              %i.fa.fa-linkedin.icon-large.fa-3x
+              %i.fa.fa-linkedin.icon-large.fa-5x
               %h4
                 %span LinkedIn
