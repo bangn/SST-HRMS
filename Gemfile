@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
+gem 'devise'
 
 group :development do
   gem 'spring'
