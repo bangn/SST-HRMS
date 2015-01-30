@@ -2,31 +2,16 @@
 @import "../common/lib/bootstrap/mixins";
 #my-carousel {
   font-style: italic;
-  .span8 {
-    width:620px;
-    display: inline-block;
-  }
-
-  .span4 {
-    width:440px;
-    display:inline-block;
-    float: right;
-  }
-
-  .container {
-    margin-bottom: 30px;
-  }
-
+  margin-bottom: 30px;
   .carousel-control {
     margin-top:0;
     border:0px;
     background:transparent;
     text-shadow:0px -1px 0px rgba(0,0,0,0.5);
-  }  
-
+  }
   .carousel-inner {
     img {
-      height: 423px;
+      max-height: 423px;
     }
   }
 }
