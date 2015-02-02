@@ -5,6 +5,10 @@
     <h2>Sign in</h2>
     <hr>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name},", :class => "alert alert-danger" %>
+      <% end %>
+      
       <div class="form-group">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %>
