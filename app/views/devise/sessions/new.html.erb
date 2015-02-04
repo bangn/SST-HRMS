@@ -1,12 +1,12 @@
 <div class = "container">
-  <div class = "col-sm-3">
-  </div>
-  <div class = "col-sm-6">
+  <div class = "col-sm-6 col-md-offset-3">
     <h2>Sign in</h2>
     <hr>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name},", :class => "alert alert-danger" %>
+        <% if msg.include? "Invalid" %>
+          <%= content_tag :div, msg, :id => "flash_#{name},", :class => "alert alert-danger" %>
+        <% end %>
       <% end %>
       
       <div class="form-group">
