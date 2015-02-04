@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'devise'
+gem 'jquery-ui-rails'
 
 group :development do
   gem 'spring'
