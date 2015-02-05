@@ -13,11 +13,16 @@ footer {
   background-color: #e7e7e7;
   padding: 40px;
 }
+
 .navbar-default {
-  .navbar-nav > li > a {
-    text-align: center;
-  }
-  .navbar-nav > li > a:hover {
-    background-color: #FFFFFF;
+  .navbar-nav {
+    li {
+      a {
+          text-align: center;
+      }
+      a:hover {
+        background-color: #FFFFFF;
+      }
+    }
   }
 }
