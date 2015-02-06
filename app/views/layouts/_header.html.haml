@@ -15,7 +15,7 @@
             %a{:href => "/"} HOME
           - if user_signed_in?
             %li
-              %a{:href => "#"} DASHBOARD
+              =link_to("DASHBOARD", dashboard_path)
             - if current_user.admin?
               %li
                 =link_to("ADMIN", admin_root_path)

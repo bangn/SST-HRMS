@@ -1,2 +1,16 @@
-%h2
-  = "You are in the land of admin"
+.article
+  .container
+    %div{:role => "tabpanel"}
+      / Nav tabs
+      %ul.nav.nav-tabs{:role => "tablist"}
+        %li.col-xs-4.active{:role => "presentation"}
+          %a{"aria-controls" => "users", "data-toggle" => "tab", :href => "#users", :role => "tab"} USERS
+        %li.col-xs-4{:role => "presentation"}
+          %a{"aria-controls" => "jobs", "data-toggle" => "tab", :href => "#jobs", :role => "tab"} JOBS
+        %li.col-xs-4{:role => "presentation"}
+          %a{"aria-controls" => "reports", "data-toggle" => "tab", :href => "#reports", :role => "tab"} REPORTS
+      / Tab panes
+      .tab-content
+        #users.tab-pane.active{:role => "tabpanel"} Users
+        #jobs.tab-pane{:role => "tabpanel"} Jobs
+        #reports.tab-pane{:role => "tabpanel"} Reports

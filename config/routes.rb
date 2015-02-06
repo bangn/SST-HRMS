@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get '/dashboard' => 'dashboard#index'
 
   namespace :admin do
     root :to => "dashboards#index"
