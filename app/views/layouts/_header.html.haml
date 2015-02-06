@@ -18,7 +18,7 @@
               %a{:href => "#"} DASHBOARD
             - if current_user.admin?
               %li
-                %a{:href => "#"} ADMIN
+                =link_to("ADMIN", admin_root_path)
             %li
               = link_to "SIGN OUT", destroy_user_session_path(:authenticity_token => form_authenticity_token()), :method => :delete
           - else
