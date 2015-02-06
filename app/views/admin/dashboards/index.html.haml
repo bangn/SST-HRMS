@@ -11,6 +11,9 @@
           %a{"aria-controls" => "reports", "data-toggle" => "tab", :href => "#reports", :role => "tab"} REPORTS
       / Tab panes
       .tab-content
-        #users.tab-pane.active{:role => "tabpanel"} Users
-        #jobs.tab-pane{:role => "tabpanel"} Jobs
-        #reports.tab-pane{:role => "tabpanel"} Reports
+        #users.tab-pane.active{:role => "tabpanel"}
+          = render :partial => "users"
+        #jobs.tab-pane{:role => "tabpanel"}
+          = render :partial => "jobs"
+        #reports.tab-pane{:role => "tabpanel"}
+          = render :partial => "reports"
