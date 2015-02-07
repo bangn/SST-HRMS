@@ -1,3 +1,3 @@
 class DashboardController < ApplicationController
-  before_action :require_signin!
+  before_action :authenticate_user!
 end

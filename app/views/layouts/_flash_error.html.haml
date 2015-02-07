@@ -1,0 +1,6 @@
+.container
+  .row
+    - if flash[:error]
+      - flash.each do |name, msg|
+        .col-lg-6.col-lg-offset-3
+          = content_tag :div, msg, :id => "flash_#{name},", :class => "alert alert-danger" 

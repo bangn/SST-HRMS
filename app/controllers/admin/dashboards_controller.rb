@@ -1,3 +1,3 @@
 class Admin::DashboardsController < ApplicationController
-  before_action :require_signin!, :authenticate_admin!
+  before_action :authenticate_user!, :authenticate_admin!
 end
