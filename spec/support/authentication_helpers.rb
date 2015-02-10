@@ -6,4 +6,4 @@ module AuthenticationHelpers
     click_button "SIGN IN"
   end
 end
-RSpec.configuration.include AuthenticationHelpers, type: [:controller, :scenario]
+RSpec.configuration.include AuthenticationHelpers, type: [:controller, :feature]
