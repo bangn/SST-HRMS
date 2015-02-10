@@ -1,4 +1,4 @@
-module AuthenticationHelpers
+module LoginHelpers
   def sign_in(user)
     visit new_user_session_path
     fill_in "Email", with: user.email
@@ -6,4 +6,4 @@ module AuthenticationHelpers
     click_button "SIGN IN"
   end
 end
-RSpec.configuration.include AuthenticationHelpers, type: [:controller, :feature]
+RSpec.configuration.include LoginHelpers, type: [:controller, :feature]
