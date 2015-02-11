@@ -1,17 +1,21 @@
+@import "../common/lib/bootstrap/variables";
+
 .admin-nav-bar {
   .nav-tabs {
     li {
       a {
-        color: #555;
+        color: $gray;
         text-align: center;
-        font-weight: 500;
-      }
-    }
-    li.active {
-        a {
-          background-color: #F8F8F8;
-          color: #FF500C;
+        font {
+          weight: 500;
         }
       }
+      &.active {
+        a {
+          background-color: $gray;
+          color: $orange;
+        }
+      }
+    }
   }
 }
