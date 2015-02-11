@@ -1,7 +1,59 @@
+@import "../common/lib/bootstrap/variables";
+@import "../common/lib/bootstrap/mixins";
+
 .navbar {
   img {
     width: 70px;
     height:50px;
+  }
+}
+
+#my-carousel {
+  font-style: italic;
+  margin-bottom: 30px;
+  .carousel-control {
+    margin-top:0;
+    border:0px;
+    background:transparent;
+    text-shadow:0px -1px 0px rgba(0,0,0,0.5);
+  }
+  .carousel-inner {
+    img {
+      max-height: 423px;
+    }
+  }
+}
+
+#connect {
+  background:$blueLight;
+  padding:$baseLineHeight * 2 0;
+  color:lighten($blue,40%);
+  text-align:center;
+  position:relative;
+  font-style: italic;
+  .sectionheading {
+    color:$white;
+  }
+  .socialicons {
+    border-top:1px lighten($blue,10%) solid;
+    border-bottom:1px lighten($blue,10%) solid;
+  }
+  .col-xs-3 {
+    margin: 20px 0px;
+  }
+  a {
+    color:lighten($blue,40%);
+    text-decoration:none;
+    @include transition(color 500ms ease);
+    &:hover,
+    &:focus {
+      color:$white;
+    }
+    h4 {
+      span {
+        margin-left: -3px;
+      }
+    }
   }
 }
 
@@ -18,10 +70,10 @@ footer {
   .navbar-nav {
     li {
       a {
-          text-align: center;
-      }
-      a:hover {
-        background-color: #FFFFFF;
+        text-align: center;
+        &:hover {
+          background-color: #FFFFFF;
+        }
       }
     }
   }
