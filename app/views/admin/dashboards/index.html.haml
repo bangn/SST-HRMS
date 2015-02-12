@@ -12,7 +12,7 @@
       / Tab panes
       .tab-content
         #users.tab-pane.active{:role => "tabpanel"}
-          = render :partial => "users"
+          = link_to "MANAGE USERS", admin_users_path
         #jobs.tab-pane{:role => "tabpanel"}
           = render :partial => "jobs"
         #reports.tab-pane{:role => "tabpanel"}

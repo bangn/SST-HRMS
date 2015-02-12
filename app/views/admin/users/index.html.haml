@@ -1,10 +1,17 @@
 .container.clearfix
   %form.user-search-form
     .row
-      .form-group.col-xs-6
+      .form-group.col-md-6
         %input.form-control{:placeholder => "Enter email", :type => "email"}
     .row
-      .form-group.col-xs-6.inline-flex
+      .form-group.col-md-6
         %input.form-control{:placeholder => "First Name", :type => "text"}
+    .row
+      .form-group.col-md-6
         %input.form-control{:placeholder => "Last Name", :type => "text"}
     %button.btn.btn-primary{:type => "submit"} Search
+
+  #users-list
+    - @users.each do |user|
+      %p="id: #{user.id}"
+      %p=user.email 

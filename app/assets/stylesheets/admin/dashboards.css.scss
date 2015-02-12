@@ -20,12 +20,3 @@
     }
   }
 }
-.inline-flex {
-  display: inline-flex;
-  .form-control {
-    margin-right: 3px;
-    &:nth-child(2) {
-      margin-right: 0px;
-    }
-  }
-}
