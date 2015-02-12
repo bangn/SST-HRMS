@@ -1,7 +1,8 @@
 @import "../common/lib/bootstrap/variables";
 
-.admin-nav-bar {
+.dashboard {
   .nav-tabs {
+    margin-bottom: 20px;
     li {
       a {
         color: $gray;
@@ -16,6 +17,15 @@
           color: $orange;
         }
       }
+    }
+  }
+}
+.inline-flex {
+  display: inline-flex;
+  .form-control {
+    margin-right: 3px;
+    &:nth-child(2) {
+      margin-right: 0px;
     }
   }
 }

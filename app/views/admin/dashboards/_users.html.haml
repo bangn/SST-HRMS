@@ -1,2 +1,10 @@
-%h2
-  = "Admin manages users"
+.container.clearfix
+  %form.user-search-form
+    .row
+      .form-group.col-xs-6
+        %input.form-control{:placeholder => "Enter email", :type => "email"}
+    .row
+      .form-group.col-xs-6.inline-flex
+        %input.form-control{:placeholder => "First Name", :type => "text"}
+        %input.form-control{:placeholder => "Last Name", :type => "text"}
+    %button.btn.btn-primary{:type => "submit"} Search
