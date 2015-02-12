@@ -1,17 +1,22 @@
 .container.clearfix
-  %form.user-search-form
-    .row
-      .form-group.col-md-6
-        %input.form-control{:placeholder => "Enter email", :type => "email"}
-    .row
-      .form-group.col-md-6
-        %input.form-control{:placeholder => "First Name", :type => "text"}
-    .row
-      .form-group.col-md-6
-        %input.form-control{:placeholder => "Last Name", :type => "text"}
-    %button.btn.btn-primary{:type => "submit"} Search
+  #user-search-form
+    = form_tag(admin_users_search_path, method: :get) do
+      .row
+        .form-group.col-md-6
+          = text_field_tag :email, params[:email], :placeholder => "Enter email", :type => "email", class: "form-control"
+      .row
+        .form-group.col-md-6
+          = text_field_tag :first_name, params[:first_name], class: "form-control", :placeholder => "First Name", :type => "text"
+      .row
+        .form-group.col-md-6
+          = text_field_tag :last_name, params[:last_name], class: "form-control", :placeholder => "Last Name", :type => "text"
+      = submit_tag "Search", class: "btn btn-primary"
 
   #users-list
-    - @users.each do |user|
-      %p="id: #{user.id}"
-      %p=user.email 
+    - if @users
+      - @users.to_a.each do |user|
+        = link_to user.email, edit_admin_user_path(user)
+        .action
+          = link_to "Manage User", edit_admin_user_path(user)
+        .user-description
+          %p= "ID: #{user.id}"

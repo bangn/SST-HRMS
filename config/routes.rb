@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root :to => "dashboards#index"
+    get '/users/search' => 'users#search'
     resources :users
   end
 
