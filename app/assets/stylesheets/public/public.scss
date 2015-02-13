@@ -11,6 +11,10 @@
 #user-search-form {
   margin-bottom: $marginDefault * 2;
 }
-.badge {
-  background-color: $blueLight;
+
+#items-list {
+  margin-bottom: $marginDefault * 2;
+  .badge {
+    background-color: $blueLight;
+  }
 }

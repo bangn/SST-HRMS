@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'devise'
 gem 'jquery-ui-rails'
+gem 'kaminari' #pagination
 
 group :development do
   gem 'spring'
