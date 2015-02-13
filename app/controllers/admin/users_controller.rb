@@ -5,6 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def search
     @users = User.where("email = ?", params[:email])
+    @users = User.all if @users.empty?
     render :index
   end
 end
