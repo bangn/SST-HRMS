@@ -160,6 +160,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.0.1)
+      byebug (~> 3.4)
+      pry (~> 0.10)
     pry-doc (0.6.0)
       pry (~> 0.9)
       yard (~> 0.8)
@@ -259,7 +262,6 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  byebug
   capybara
   database_cleaner
   devise
@@ -277,6 +279,7 @@ DEPENDENCIES
   launchy
   mysql2
   pry
+  pry-byebug
   pry-doc
   rails (= 4.1.6)
   rspec-rails

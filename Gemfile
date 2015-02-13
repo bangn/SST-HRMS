@@ -26,7 +26,7 @@ group :development, :test do
   gem 'jasmine'
   gem 'pry'
   gem 'pry-doc'
-  gem 'byebug'
+  gem 'pry-byebug'
   gem 'awesome_print'
   gem 'guard-rspec'
   gem 'fuubar'
