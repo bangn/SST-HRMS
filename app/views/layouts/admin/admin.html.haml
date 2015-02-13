@@ -1,0 +1,13 @@
+= render :partial => "layouts/head"
+%body
+  = render :partial => "layouts/header"
+  = render :partial => "layouts/flash_error"
+  .article
+    .container.dashboard
+      %div{:role => "tabpanel"}
+        / Nav tabs
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li.col-xs-4.active{:role => "presentation"}
+            = link_to "USERS", admin_users_path, :role => "tab"
+  = yield
+  = render :partial => "layouts/footer"
