@@ -1,5 +1,5 @@
 .container.clearfix
-  #user-search-form
+  #user-search-form.well
     = form_tag(admin_users_search_path, method: :get) do
       .row
         .form-group.col-md-6
@@ -12,7 +12,10 @@
           = text_field_tag :last_name, params[:last_name], class: "form-control", :placeholder => "Last Name", :type => "text"
       = submit_tag "Search", class: "btn btn-primary"
 
-  #items-list.list-group
+  .add-button-link
+    = link_to "Create new user", new_admin_user_path
+
+  #items-list.well.well-md.list-group
     - if @users
       - @users.to_a.each do |user|
         .list-group-item
@@ -22,5 +25,5 @@
           .description
             = "ID: #{user.id} - #{user.full_name}"
 
-  .text-center
-    = paginate @users
+    .text-center
+      = paginate @users

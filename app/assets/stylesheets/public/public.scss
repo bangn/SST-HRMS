@@ -14,7 +14,34 @@
 
 #items-list {
   margin-bottom: $marginDefault * 2;
-  .badge {
-    background-color: $blueLight;
+  .list-group-item {
+    vertical-align: middle;
+    .badge {
+      background-color: $blueLight;
+    }
   }
+
+  .description {
+    margin-left: $marginDefault / 2;
+    font-size: 12px;
+  }
+}
+
+.button-link {
+  padding: 5px 5px 5px 25px;
+  border: 1px solid $btnBorder;
+  /*border: 1px solid #2E6DA4;*/
+  color: $blueLight;
+  text-decoration:none;
+  border-radius: 3px;
+  background: $blueLight no-repeat scroll 5px center;
+  a {
+    color: white;
+  }
+}
+
+.add-button-link {
+  @extend .button-link;
+  width: 155px;
+  margin-bottom: $marginDefault;
 }
