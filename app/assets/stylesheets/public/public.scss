@@ -2,6 +2,10 @@
 
 .btn-primary {
   background-color: $blueLight;
+  border-color: $btnBorder;
+  &:hover {
+    background-color: $blueLight;
+  }
 }
 
 .alert {
@@ -30,13 +34,15 @@
 .button-link {
   padding: 5px 5px 5px 25px;
   border: 1px solid $btnBorder;
-  /*border: 1px solid #2E6DA4;*/
   color: $blueLight;
   text-decoration:none;
   border-radius: 3px;
   background: $blueLight no-repeat scroll 5px center;
   a {
     color: white;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -44,4 +50,8 @@
   @extend .button-link;
   width: 155px;
   margin-bottom: $marginDefault;
+}
+
+.badge {
+  font-weight: normal;
 }

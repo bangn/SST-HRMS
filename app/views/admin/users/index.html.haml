@@ -12,7 +12,7 @@
           = text_field_tag :last_name, params[:last_name], class: "form-control", :placeholder => "Last Name", :type => "text"
       = submit_tag "Search", class: "btn btn-primary"
 
-  .add-button-link
+  .add-button-link.btn-primary
     = link_to "Create new user", new_admin_user_path
 
   #items-list.well.well-md.list-group
