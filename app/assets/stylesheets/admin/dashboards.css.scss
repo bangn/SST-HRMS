@@ -2,7 +2,7 @@
 
 .dashboard {
   .nav-tabs {
-    margin-bottom: 20px;
+    margin-bottom: $marginDefault;
     li {
       a {
         color: $gray;

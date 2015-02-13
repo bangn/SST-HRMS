@@ -12,11 +12,12 @@
           = text_field_tag :last_name, params[:last_name], class: "form-control", :placeholder => "Last Name", :type => "text"
       = submit_tag "Search", class: "btn btn-primary"
 
-  #users-list
+  #users-list.list-group
     - if @users
       - @users.to_a.each do |user|
-        = link_to user.email, edit_admin_user_path(user)
-        .action
-          = link_to "Manage User", edit_admin_user_path(user)
-        .user-description
-          %p= "ID: #{user.id}"
+        .list-group-item
+          = link_to user.email, edit_admin_user_path(user)
+          %span.badge
+            = link_to "Manage User", edit_admin_user_path(user), class: "badge"
+          .description
+            = "ID: #{user.id} - #{user.full_name}"

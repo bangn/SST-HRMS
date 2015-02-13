@@ -39,7 +39,7 @@
     border-bottom:1px lighten($blue,10%) solid;
   }
   .col-xs-3 {
-    margin: 20px 0px;
+    margin: $marginDefault 0px;
   }
   a {
     color:lighten($blue,40%);
