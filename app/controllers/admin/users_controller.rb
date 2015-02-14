@@ -1,11 +1,11 @@
 class Admin::UsersController < Admin::AdminsController
   def index
-    @users = User.all.page params[:page]
+    @users = User.all.order(:email).page params[:page]
   end
 
   def search
     @users = User.where("email = ? or first_name = ? or last_name = ?", params[:email], params[:first_name], params[:last_name])
-    @users = User.all if @users.empty? && search_params_empty?
+    @users = User.all.order(:email) if @users.empty? && search_params_empty?
 
     @users = @users.page params[:page]
     render :index

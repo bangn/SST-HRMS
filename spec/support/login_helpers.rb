@@ -1,9 +1,6 @@
 module LoginHelpers
   def sign_in(user)
-    visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "SIGN IN"
+    session[:user_id] = user.id
   end
 end
-RSpec.configuration.include LoginHelpers, type: [:controller, :feature]
+RSpec.configuration.include LoginHelpers, type: :controller
