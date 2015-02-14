@@ -50,8 +50,14 @@
   @extend .button-link;
   width: 155px;
   margin-bottom: $marginDefault;
+  padding: 10px;
+  &:before {
+    color: white;
+    margin-right: 5px;
+  }
 }
 
 .badge {
+  border-radius: 3px;
   font-weight: normal;
 }

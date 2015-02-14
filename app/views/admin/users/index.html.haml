@@ -10,18 +10,23 @@
       .row
         .form-group.col-md-6
           = text_field_tag :last_name, params[:last_name], class: "form-control", :placeholder => "Last Name", :type => "text"
-      = submit_tag "Search", class: "btn btn-primary"
+      -#= submit_tag "Search", class: "btn btn-primary"
+      %button.btn.btn-primary{:type => "submit"}
+        %i.fa.fa-search
+          Search
 
-  .add-button-link.btn-primary
+  .add-button-link.btn-primary.fa.fa-plus
     = link_to "Create new user", new_admin_user_path
 
   #items-list.well.well-md.list-group
     - if @users
       - @users.to_a.each do |user|
         .list-group-item
-          = link_to user.email, edit_admin_user_path(user)
-          %span.badge
-            = link_to "Manage User", edit_admin_user_path(user), class: "badge"
+          %a{:href => edit_admin_user_path(user)} #{user.email}
+          %span.badge.fa.fa-edit
+            %a{:href => edit_admin_user_path(user), class: "badge"} Edit
+          %span.badge.fa.fa-remove
+            %a{:href => admin_user_path(user), method: :delete, class: "badge"} Delete
           .description
             = "ID: #{user.id} - #{user.full_name}"
 
