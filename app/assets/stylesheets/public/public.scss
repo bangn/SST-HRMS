@@ -1,4 +1,24 @@
 @import "../common/lib/bootstrap/variables";
+.dashboard {
+  .nav-tabs {
+    margin-bottom: $marginDefault;
+    li {
+      a {
+        color: $gray;
+        text-align: center;
+        font {
+          weight: 500;
+        }
+      }
+      &.active {
+        a {
+          background-color: $gray;
+          color: $orange;
+        }
+      }
+    }
+  }
+}
 
 .btn-primary {
   background-color: $blueLight;
@@ -6,10 +26,6 @@
   &:hover {
     background-color: $blueLight;
   }
-}
-
-.alert {
-  text-align: center;
 }
 
 #user-search-form {
@@ -60,4 +76,8 @@
 .badge {
   border-radius: 3px;
   font-weight: normal;
+}
+
+.form-default {
+  margin: 15px 0px;
 }
