@@ -4,7 +4,7 @@ FactoryGirl.define do
     email { generate(:email) }
     password "12345678"
     password_confirmation "12345678"
-    factory :admin_user do
+    factory :admin do
       email "admin@strongtie.com"
       admin true
     end
