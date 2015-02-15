@@ -4,7 +4,7 @@
       <h2>Sign in</h2>
       <hr>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-default"}) do |f| %>
-        <% messages = flash.map { |name, msg| msg }%>
+        <% messages = flash.map { |name, msg| msg if msg.include? "Invalid" }%>
         <%= show_error_messages_if_any messages %>
         
         <div class="form-group">
