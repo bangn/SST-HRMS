@@ -3,12 +3,9 @@
     <div class = "col-sm-6 col-md-offset-3">
       <h2>Sign in</h2>
       <hr>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <% flash.each do |name, msg| %>
-          <% if msg.include? "Invalid" %>
-            <%= content_tag :div, msg, :id => "flash_#{name},", :class => "alert alert-danger" %>
-          <% end %>
-        <% end %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-default"}) do |f| %>
+        <% messages = flash.map { |name, msg| msg }%>
+        <%= show_error_messages_if_any messages %>
         
         <div class="form-group">
           <%= f.label :email %><br />
