@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Admin create user" do
   let!(:admin) { FactoryGirl.create(:admin) }
-  it "should create new user" ,focus: true, driver: :selenium do
+  it "should create new user" do
     sign_in_as!(admin)
     click_link "Create new user"
 
