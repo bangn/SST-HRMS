@@ -1,10 +1,20 @@
 class Admin::UsersController < Admin::AdminsController
+  before_filter :set_user, only: [:show, :edit, :update, :destroy]
   def index
     @users = User.all.order(:email).page params[:page]
   end
 
   def new
     @user = User.new
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to admin_users_path
+    else
+      flash[:error] = "Error when trying to update #{@user.email}. Please try again"
+      render :edit
+    end
   end
 
   def create
@@ -30,6 +40,10 @@ class Admin::UsersController < Admin::AdminsController
   end
 
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def search_params_empty?
     [:email, :first_name, :last_name].inject(true) {|result, search_param| result && params[search_param].empty? }
   end
