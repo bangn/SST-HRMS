@@ -1,5 +1,5 @@
 = form_for([:admin, @user]) do |f|
-  = flash_messages
+  = show_error_messages_if_any @user.errors.full_messages
   .form-group
     = f.label :email
     = f.email_field :email, autofocus: true, class: "form-control"

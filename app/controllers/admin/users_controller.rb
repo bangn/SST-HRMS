@@ -9,15 +9,15 @@ class Admin::UsersController < Admin::AdminsController
 
   def create
     params = user_params.dup
-    redirect_to new_admin_user_path and return if email_blank? or email_taken? or !password_valid? or !password_match?
+    redirect_to new_admin_user_path and return if email_taken? or !password_match?
     
-    user = User.new(params)
+    @user = User.create(params)
 
-    if user.save!
+    if @user.save
       redirect_to admin_users_path
     else
       flash[:error] = "Error when trying to save. Please try again"
-      redirect_to new_admin_user_path
+      render :new
     end
   end
 
@@ -50,24 +50,10 @@ class Admin::UsersController < Admin::AdminsController
     is_match
   end
 
-  def email_blank?
-    is_blank = user_params[:email].blank?
-    flash[:error] = "Email cannot be blank" if is_blank
-
-    is_blank
-  end
-
   def email_taken?
     is_taken = User.find_by_email(user_params[:email])
     flash[:error] = "Email has been taken" if is_taken
 
     is_taken
-  end
-
-  def password_valid?
-    is_valid = !user_params[:password].blank?
-    flash[:error] = "Password cannot be blank" unless is_valid
-
-    is_valid
   end
 end

@@ -1,8 +1,8 @@
 module ApplicationHelper
-  def flash_messages
-    return "" if !flash[:error]
+  def show_error_messages_if_any messages
+    return "" if !messages or messages.empty?
 
-    messages = [flash[:error]].map { |msg| content_tag(:li, msg) }.join
+    messages = messages.map { |msg| content_tag(:li, msg) }.join
 
     html = <<-HTML
     <div class="alert alert-danger" role="alert">
