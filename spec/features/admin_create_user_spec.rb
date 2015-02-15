@@ -16,7 +16,7 @@ describe "Admin create user" do
     fill_in "Password confirmation", with: "password"
     
     click_button "Create"
-    
+
     expect(page).to have_content("new_user@example.com")
   end
 
@@ -24,7 +24,6 @@ describe "Admin create user" do
     fill_in "Email", with: ""
     click_button "Create"
 
-    byebug
     expect(page).to have_content "Email can't be blank"
   end
 end
