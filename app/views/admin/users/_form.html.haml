@@ -1,4 +1,4 @@
-= form_for([:admin, @user]) do |f|
+= form_for([:admin, @user], html: {class: "form-default"}) do |f|
   = show_error_messages_if_any @user.errors.full_messages
   .form-group
     = f.label :email
