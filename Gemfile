@@ -39,5 +39,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'font_assets'
 end
