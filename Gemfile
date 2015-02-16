@@ -10,10 +10,10 @@ gem 'haml-rails'
 gem 'devise'
 gem 'jquery-ui-rails'
 gem 'kaminari' #pagination
+gem 'pg'
 
 group :development do
   gem 'spring'
-  gem 'pg'
 end
 
 group :development, :test do
@@ -35,9 +35,4 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'guard-jasmine', :git => 'git://github.com/guard/guard-jasmine.git'
   gem 'jasmine-jquery-rails'
-  gem 'pg'
-end
-
-group :production do
-  gem 'pg'
 end
