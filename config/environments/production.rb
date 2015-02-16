@@ -77,4 +77,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.assets.precompile += %w( .svg .eot .woff .ttf )
   config.assets.paths << "#{Rails.root}/app/assets/fonts"
+  config.font_assets.origin = 'http://codeschool.com'
 end
