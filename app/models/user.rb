@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   paginates_per 10
-  validates :password_confirmation, presence: true, length: {minimum: 8}
+  validates :password_confirmation, presence: true, length: {minimum: 8}, :if => :password_required?
 
   def full_name
     "#{first_name} #{last_name}"

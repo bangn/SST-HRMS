@@ -9,7 +9,8 @@ class Admin::UsersController < Admin::AdminsController
   end
 
   def update
-    if @user.update_attributes(user_params)
+    sanitize_user_params
+    if @user.update_without_password user_params
       redirect_to admin_users_path
     else
       flash[:error] = "Error when trying to update #{@user.email}. Please try again"
@@ -18,10 +19,9 @@ class Admin::UsersController < Admin::AdminsController
   end
 
   def create
-    params = user_params.dup
     redirect_to new_admin_user_path and return if email_taken? or !password_match?
     
-    @user = User.create(params)
+    @user = User.create(user_params)
 
     if @user.save
       redirect_to admin_users_path
@@ -69,5 +69,12 @@ class Admin::UsersController < Admin::AdminsController
     flash[:error] = "Email has been taken" if is_taken
 
     is_taken
+  end
+  
+  def sanitize_user_params
+    if user_params[:password].blank?
+      user_params.delete :password
+      user_params.delete :password_confirmation
+    end
   end
 end
