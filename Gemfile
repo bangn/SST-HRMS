@@ -36,3 +36,7 @@ group :development, :test do
   gem 'guard-jasmine', :git => 'git://github.com/guard/guard-jasmine.git'
   gem 'jasmine-jquery-rails'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
