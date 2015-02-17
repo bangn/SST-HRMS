@@ -6,6 +6,7 @@ module ApplicationHelper
 
     html = <<-HTML
     <div class="alert alert-danger" role="alert">
+      <strong> Something went wrong:</strong>
       #{messages}
     </div>
     HTML

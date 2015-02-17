@@ -33,7 +33,11 @@ class Admin::UsersController < Admin::AdminsController
   end
   
   def destroy
-    @user.destroy
+    if @user != current_user
+      @user.destroy
+    else
+      flash[:error] = "You can't delete your self"
+    end
     redirect_to admin_users_path
   end
 
