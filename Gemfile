@@ -11,6 +11,7 @@ gem 'devise'
 gem 'jquery-ui-rails'
 gem 'kaminari' #pagination
 gem 'pg'
+gem 'thin'
 
 group :development do
   gem 'spring'
@@ -23,7 +24,6 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'email_spec'
-  gem 'thin'
   gem 'database_cleaner'
   gem 'jasmine'
   gem 'pry'
@@ -39,5 +39,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'thin'
 end
