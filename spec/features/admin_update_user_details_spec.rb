@@ -17,4 +17,8 @@ describe "Admin update user detail" do
 
     expect(page).to have_content("First Last")
   end
+
+  it "should disable email field" do
+    page.find("#user_email").should be_disabled
+  end
 end
