@@ -25,7 +25,7 @@
           %span.badge.fa.fa-edit
             %a{:href => edit_admin_user_path(user), class: "badge"} Edit
           %span.badge.fa.fa-remove
-            %a{:href => admin_user_path(user), method: :delete, class: "badge"} Delete
+            %a{:href => admin_user_path(user), :remote => true, :authenticity_token => true , "data-method" => "delete", "data-confirm" => "Are you sure?", class: "badge user-#{user.id}"} Delete
           .description
             = "ID: #{user.id} - #{user.full_name}"
 

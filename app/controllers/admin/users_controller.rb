@@ -1,23 +1,10 @@
 class Admin::UsersController < Admin::AdminsController
   before_filter :set_user, only: [:show, :edit, :update, :destroy]
-  def index
-    @users = User.all.order(:email).page params[:page]
-  end
 
   def new
     @user = User.new
   end
-
-  def update
-    sanitize_user_params
-    if @user.update_without_password user_params
-      redirect_to admin_users_path
-    else
-      flash[:error] = "Error when trying to update #{@user.email}. Please try again"
-      render :edit
-    end
-  end
-
+  
   def create
     redirect_to new_admin_user_path and return if email_taken? or !password_match?
     
@@ -29,6 +16,25 @@ class Admin::UsersController < Admin::AdminsController
       flash[:error] = "Error when trying to save. Please try again"
       render :new
     end
+  end
+
+  def index
+    @users = User.all.order(:email).page params[:page]
+  end
+  
+  def update
+    sanitize_user_params
+    if @user.update_without_password user_params
+      redirect_to admin_users_path
+    else
+      flash[:error] = "Error when trying to update #{@user.email}. Please try again"
+      render :edit
+    end
+  end
+  
+  def destroy
+    @user.destroy
+    redirect_to admin_users_path
   end
 
   def search
