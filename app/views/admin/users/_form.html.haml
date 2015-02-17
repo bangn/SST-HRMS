@@ -2,7 +2,7 @@
   = show_error_messages_if_any @user.errors.full_messages
   .form-group
     = f.label :email
-    = f.email_field :email, autofocus: true, class: "form-control"
+    = f.email_field :email, autofocus: true, class: "form-control", disabled: params[:action] != "new"
   .form-group
     = f.label :first_name
     = f.text_field :first_name, autofocus: true, class: "form-control"
