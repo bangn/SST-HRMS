@@ -20,6 +20,6 @@ describe "Admin delete user" do
     page.accept_alert "Are you sure you want to delete #{admin.email}?"
 
     expect(page).to have_content("#{admin.email}")
-    expect(page).to have_content("You can't delete your self")
+    expect(page).to have_content("You can't delete yourself!")
   end
 end
