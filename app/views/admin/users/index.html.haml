@@ -22,7 +22,7 @@
     - if @users
       - @users.to_a.each do |user|
         .list-group-item
-          = link_to "#{user.email}"
+          = link_to "#{user.email}", edit_admin_user_path(user)
           %span.badge.fa.fa-edit
             = link_to "Edit", edit_admin_user_path(user), :class => "badge"
           %span.badge.fa.fa-remove
