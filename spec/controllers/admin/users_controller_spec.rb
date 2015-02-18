@@ -23,7 +23,7 @@ describe Admin::UsersController do
   end
 
   it "search with admin email should return only admin user" do
-    search_params = { email: "admin@strongtie.com", first_name: "", last_name: "" }
+    search_params = { email: "admin@example.com", first_name: "", last_name: "" }
     get :search, search_params
 
     assigns(:users).should include(admin)

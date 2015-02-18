@@ -26,7 +26,7 @@
           %span.badge.fa.fa-edit
             = link_to "Edit", edit_admin_user_path(user), :class => "badge"
           %span.badge.fa.fa-remove
-            = link_to "Delete", admin_user_path(user), :remote => true, :authenticity_token => true , "data-method" => "delete", "data-confirm" => "Are you sure you want to delete #{user.email}?", class: "badge user", :id => "user-#{user.id}"
+            = link_to "Delete", admin_user_path(user), method: :delete, class: "badge", :id => "user-#{user.id}", "data-confirm" => "Are you sure you want to delete #{user.email}?"
           .description
             = "ID: #{user.id} - #{user.full_name}"
 
