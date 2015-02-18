@@ -22,11 +22,11 @@
     - if @users
       - @users.to_a.each do |user|
         .list-group-item
-          %a{:href => edit_admin_user_path(user)} #{user.email}
+          = link_to "#{user.email}"
           %span.badge.fa.fa-edit
-            %a{:href => edit_admin_user_path(user), class: "badge"} Edit
+            = link_to "Edit", edit_admin_user_path(user), :class => "badge"
           %span.badge.fa.fa-remove
-            %a{:href => admin_user_path(user), :remote => true, :authenticity_token => true , "data-method" => "delete", "data-confirm" => "Are you sure?", class: "badge user-#{user.id}"} Delete
+            = link_to "Delete", admin_user_path(user), :remote => true, :authenticity_token => true , "data-method" => "delete", "data-confirm" => "Are you sure you want to delete #{user.email}?", class: "badge user", :id => "#{user.id}"
           .description
             = "ID: #{user.id} - #{user.full_name}"
 
