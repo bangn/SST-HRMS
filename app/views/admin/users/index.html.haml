@@ -21,14 +21,7 @@
   #items-list.well.well-md.list-group
     - if @users
       - @users.to_a.each do |user|
-        .list-group-item
-          = link_to "#{user.email}", edit_admin_user_path(user)
-          %span.badge.fa.fa-edit
-            = link_to "Edit", edit_admin_user_path(user), :class => "badge"
-          %span.badge.fa.fa-trash
-            = link_to "Delete", admin_user_path(user), method: :delete, class: "badge", :id => "user-#{user.id}", "data-confirm" => "Are you sure you want to delete #{user.email}?"
-          .description
-            = "ID: #{user.id} - #{user.full_name}"
+        = render :partial => "users_list", locals: {:user => user}
 
     .text-center
       = paginate @users

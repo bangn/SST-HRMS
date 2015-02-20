@@ -1,0 +1,32 @@
+#delete-confirmation.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#delete-confirmation.modal-title Delete user
+      .modal-body
+        Are you sure want to delete #{user.email}?
+      .modal-footer
+        %button.btn.btn-default#delete-close{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary#delete-confirm{":type" => "button"} OK
+
+:javascript
+  $(function(){
+    deleteResource($('#delete-confirmation.modal'), $('.modal #delete-confirm'), "#{admin_user_path(user)}")
+  });
+  
+  function deleteResource(deletePopup, deleteConfirmButton, ajaxDeleteUrl) {
+    deleteConfirmButton.click(function() {
+      deletePopup.modal('hide');
+      $.ajax({
+        data: {"_method": 'delete'},
+        type: 'POST',
+        url: ajaxDeleteUrl,
+        complete: function(data) {
+          location.reload(true);
+        }
+      });
+    });
+  } 
+        

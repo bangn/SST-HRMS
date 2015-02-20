@@ -10,16 +10,12 @@ describe "Admin delete user" do
   
   it "should delete user", :js => true do
     page.find("#user-#{user.id}").click
-    page.accept_alert "Are you sure you want to delete #{user.email}?"
+    page.find("#delete-confirm").click
 
     expect(page).not_to have_content("#{user.email}")
   end
   
-  it "should not delete its own account", :js => true do
-    page.find("#user-#{admin.id}").click
-    page.accept_alert "Are you sure you want to delete #{admin.email}?"
-
-    expect(page).to have_content("#{admin.email}")
-    expect(page).to have_content("You can't delete yourself!")
+  it "should not have delete link for current user", :js => true do
+    page.should_not have_css("#user-#{admin.id}")
   end
 end
