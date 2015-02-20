@@ -1,5 +1,22 @@
 require "spec_helper"
 
 describe UserMailer do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "welcome email", :focus => true do
+    let(:user) {FactoryGirl.create(:user)}
+    before(:all) do
+      @email = UserMailer.welcome_to_strongtie(user)
+    end
+
+    it "should be set to be delivered to the email passed in" do
+      @email.should deliver_to(user.email)
+    end
+
+    it "should contain the user's message in the mail body" do
+      @email.should have_body_text(/Welcome to Simpson StrongTie Vietnam/)
+    end
+
+    it "should have the correct subject" do
+      @email.should have_subject(/Welcome to Simpson StrongTie Vietnam!/)
+    end
+  end
 end

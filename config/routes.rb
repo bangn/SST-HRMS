@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  # mail_view preview
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

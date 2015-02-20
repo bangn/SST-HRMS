@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Welcome to Simpson StrongTie Vietnam, <strong><%= @user.email %></strong></p>
+    <br>
+    <p>
+      You have successfully signed up.<br>
+    </p>
+    <p>
+      Please follow this link 
+      <%= link_to "Sign In", new_user_session_path %> to sign in with your email address.<br>
+    </p>
+    <br>
+    <p>Thanks for joining!</p>
+  </body>
+</html>
