@@ -4,16 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Welcome to Simpson StrongTie Vietnam, <strong><%= @user.email %></strong></p>
-    <br>
-    <p>
-      You have successfully signed up.<br>
-    </p>
+    <p>Hello <strong><%= @user.email %></strong></p>
+    <p>Welcome to Simpson StrongTie Vietnam!</p>
     <p>
       Please follow this link 
-      <%= link_to "Sign In", new_user_session_path %> to sign in with your email address.<br>
+      <%= link_to "Sign In", new_user_session_path %> to sign in with your email address.
     </p>
-    <br>
     <p>Thanks for joining!</p>
   </body>
 </html>
