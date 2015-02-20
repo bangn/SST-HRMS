@@ -5,6 +5,8 @@ describe "Admin update details" do
   let!(:user) { FactoryGirl.create(:user) }
   
   before :each do
+    admin.confirm!
+    user.confirm!
     sign_in_as!(admin)
   end
   

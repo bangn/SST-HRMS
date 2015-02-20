@@ -4,6 +4,7 @@ describe "Admin create user" do
   let!(:admin) { FactoryGirl.create(:admin) }
   
   before :each do
+    admin.confirm!
     sign_in_as!(admin)
     click_link "Create new user"
   end
