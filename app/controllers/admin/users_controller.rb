@@ -11,6 +11,7 @@ class Admin::UsersController < Admin::AdminsController
     @user = User.create(user_params)
 
     if @user.save
+      UserMailer.welcome_to_strongtie(@user).deliver
       redirect_to admin_users_path
     else
       flash[:error] = "Error when trying to save. Please try again"

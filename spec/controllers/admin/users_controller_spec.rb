@@ -29,4 +29,10 @@ describe Admin::UsersController do
     assigns(:users).should include(admin)
     assigns(:users).should_not include(user)
   end
+  
+  it "should deliver the welcome email" do
+    UserMailer.should_receive(:welcome_to_strongtie).and_return(double("UserMailer", :deliver => true))
+
+    post :create, :user => {:email => "user@user.com", :password => "password", :password_confirmation => "password"}
+  end
 end
