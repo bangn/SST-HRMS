@@ -12,6 +12,7 @@ gem 'jquery-ui-rails'
 gem 'kaminari' #pagination
 gem 'pg'
 gem 'thin'
+gem 'mail_view'
 
 group :development do
   gem 'spring'
