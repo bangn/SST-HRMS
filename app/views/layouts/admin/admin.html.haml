@@ -5,10 +5,10 @@
     .container.dashboard
       %div{:role => "tabpanel"}
         / Nav tabs
-        %ul.nav.nav-tabs{:role => "tablist"}
-          %li.col-xs-4.active{:role => "presentation"}
+        %ul.nav.nav-tabs.nav-justified{:role => "tablist"}
+          %li.active{:role => "presentation"}
             = link_to "USERS", admin_users_path, :role => "tab"
-          %li.col-xs-4.active{:role => "presentation"}
+          %li.active{:role => "presentation"}
             = link_to "TEAMS", admin_teams_path, :role => "tab"
   = yield
   = render :partial => "layouts/footer"

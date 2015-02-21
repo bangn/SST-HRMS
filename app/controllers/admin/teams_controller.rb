@@ -30,6 +30,17 @@ class Admin::TeamsController < Admin::AdminsController
       render :edit
     end
   end
+  
+  def destroy
+    team_name = @team.name
+    if @team.destroy
+      flash[:notice] = "#{team_name} has been successfully deleted!"
+    else
+      flash[:error] = "Error when deleting #{team_name}. Please try again"
+    end
+    
+    render nothing: true #ajax call will reload index page
+  end
 
   private 
   def team_params
