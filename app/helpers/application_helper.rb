@@ -6,6 +6,7 @@ module ApplicationHelper
 
     html = <<-HTML
     <div class="alert alert-danger" role="alert">
+      <button class="pull-right closable">x</button>
       <strong> Something went wrong:</strong>
       #{messages}
     </div>
