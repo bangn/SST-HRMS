@@ -42,6 +42,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    auto_strip_attributes (2.0.6)
+      activerecord (>= 3.0)
     awesome_print (1.6.1)
     bcrypt (3.1.10)
     builder (3.2.2)
@@ -271,6 +273,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  auto_strip_attributes
   awesome_print
   capybara
   database_cleaner

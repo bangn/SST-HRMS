@@ -13,6 +13,7 @@ gem 'kaminari' #pagination
 gem 'pg'
 gem 'thin'
 gem 'mail_view'
+gem 'auto_strip_attributes'
 
 group :development do
   gem 'spring'
