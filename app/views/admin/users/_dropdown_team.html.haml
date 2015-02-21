@@ -1,0 +1,7 @@
+- @all_teams = Team.all
+= f.label :team_name, "Belongs to team"
+%select.form-control
+  %option
+  - @all_teams.each do |team|
+    %option{:value => "#{team.id}"}
+      = team.name
