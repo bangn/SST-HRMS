@@ -11,6 +11,7 @@ class Admin::UsersController < Admin::AdminsController
     @user = User.create(user_params)
 
     if @user.save
+      flash[:notice] = "New user has been created!"
       UserMailer.welcome_to_strongtie(@user).deliver
       redirect_to admin_users_path
     else

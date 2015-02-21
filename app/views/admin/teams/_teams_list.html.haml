@@ -1,0 +1,6 @@
+.list-group-item
+  = link_to "#{team.name}", edit_admin_team_path(team)
+  %span.badge.fa.fa-edit
+    = link_to "Edit", edit_admin_team_path(team), :class => "badge"
+  %span.badge.fa.fa-trash
+    = link_to "Delete", "#", :class => "badge", :id => "team-#{team.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{admin_team_path(team)}"

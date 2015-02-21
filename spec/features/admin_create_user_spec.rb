@@ -17,6 +17,7 @@ describe "Admin create user" do
     fill_in "Password confirmation", with: "password"
     click_button "SUBMIT"
 
+    expect(page).to have_content("New user has been created!")
     expect(page).to have_content("new_user@example.com")
   end
 
