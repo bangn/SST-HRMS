@@ -5,9 +5,7 @@ class Admin::UsersController < Admin::AdminsController
     @user = User.new
   end
   
-  def create
-    redirect_to new_admin_user_path and return if email_taken? or !password_match?
-    
+  def create    
     @user = User.create(user_params)
 
     if @user.save
@@ -70,20 +68,6 @@ class Admin::UsersController < Admin::AdminsController
                                  :password,
                                  :password_confirmation,
                                  :admin)
-  end
-
-  def password_match?
-    is_match = user_params[:password] == user_params[:password_confirmation]
-    flash[:error] = "Password not match" unless is_match
-
-    is_match
-  end
-
-  def email_taken?
-    is_taken = User.find_by_email(user_params[:email])
-    flash[:error] = "Email has been taken" if is_taken
-
-    is_taken
   end
   
   def sanitize_user_params
