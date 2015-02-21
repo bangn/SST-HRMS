@@ -18,10 +18,10 @@ describe "Admin delete user" do
 
     expect(page).not_to have_content("#{user.email}")
     expect(page).to have_content("#{user_2.email}")
+    expect(page).to have_content("User has been deleted successfully!")
   end
   
   it "should not delete its own", :js => true do
-    pending
     page.find("#user-#{admin.id}").click
     page.find("#delete-confirm").click
     

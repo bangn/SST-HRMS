@@ -27,6 +27,7 @@ class Admin::UsersController < Admin::AdminsController
   def update
     sanitize_user_params
     if @user.update_without_password user_params
+      flash[:notice] = "User has been updated successfully!"
       redirect_to admin_users_path
     else
       flash[:error] = "Error when trying to update #{@user.email}. Please try again"
@@ -37,10 +38,12 @@ class Admin::UsersController < Admin::AdminsController
   def destroy
     if @user != current_user
       @user.destroy
+      flash[:notice] = "User has been deleted successfully!"
     else
       flash[:error] = "You can't delete yourself!"
     end
-    redirect_to admin_users_path
+    
+    render nothing: true #ajax call will reload index page
   end
 
   def search
