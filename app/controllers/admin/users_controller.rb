@@ -67,7 +67,8 @@ class Admin::UsersController < Admin::AdminsController
                                  :last_name,
                                  :password,
                                  :password_confirmation,
-                                 :admin)
+                                 :admin,
+                                 :team_id)
   end
   
   def sanitize_user_params

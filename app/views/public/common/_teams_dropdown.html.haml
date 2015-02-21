@@ -1,0 +1,7 @@
+- @all_teams = Team.all
+= f.label :team_id, "Belongs to team"
+%select.form-control{:id => "#{f.object_name}_team_id", :name => "#{f.object_name}[team_id]", :disabled => !current_user.admin?}
+  %option
+  - @all_teams.each do |team|
+    %option{:value => "#{team.id}", :selected => (user.nil? ? false : user.team_id == team.id)}
+      = team.name
