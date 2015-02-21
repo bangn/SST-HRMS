@@ -1,6 +1,6 @@
 .container.clearfix
   = show_error_messages_if_any [flash[:error]]
-  #user-search-form.well
+  #search-form.well
     = form_tag(admin_users_search_path, method: :get) do
       .row
         .form-group.col-md-6
@@ -18,8 +18,8 @@
   .add-button-link.btn-primary.fa.fa-user-plus
     = link_to "Create new user", new_admin_user_path
 
-  #items-list.well.well-md.list-group
-    - if @users
+  - if @users.any?
+    #items-list.well.well-md.list-group
       - @users.to_a.each do |user|
         = render :partial => "users_list", locals: {:user => user}
 
