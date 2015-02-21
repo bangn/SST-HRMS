@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, length: {minimum: 8}, :if => :password_required?
 
   def full_name
-    "#{first_name} #{last_name}"
+    full_name = "#{first_name} #{last_name}"
+    
+    full_name.strip.empty? ? "Unknown" : full_name
   end
 end
