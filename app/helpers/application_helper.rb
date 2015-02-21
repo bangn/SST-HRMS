@@ -14,4 +14,17 @@ module ApplicationHelper
 
     html.html_safe
   end
+  
+  def show_notice_message_if_any message
+    return "" if !message
+
+    html = <<-HTML
+    <div class="alert alert-success" role="alert">
+      <button class="pull-right closable">x</button>
+      #{message}
+    </div>
+    HTML
+
+    html.html_safe
+  end
 end

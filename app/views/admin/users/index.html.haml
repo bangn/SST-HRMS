@@ -1,8 +1,7 @@
 .container.clearfix
   = show_error_messages_if_any [flash[:error]]
-  - if flash[:notice]
-    .alert.alert-success{:role => "alert"}
-      = flash[:notice]
+  = show_notice_message_if_any flash[:notice]
+  
   #search-form.well
     = form_tag(admin_users_search_path, method: :get) do
       .row
