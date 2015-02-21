@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :validatable, :confirmable, :lockable
   paginates_per 10
   validates :password_confirmation, presence: true, length: {minimum: 8}, :if => :password_required?
+  belongs_to :team
 
   def full_name
     full_name = "#{first_name} #{last_name}"

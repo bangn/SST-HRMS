@@ -13,7 +13,7 @@ class Admin::TeamsController < Admin::AdminsController
     @team = Team.create(team_params)
 
     if @team.save
-      flash[:notice] = "New team has been created!"
+      flash[:notice] = "#{@team.name} team has been created!"
       redirect_to admin_teams_path
     else
       flash[:error] = "There is an error when saving. Please try again"
@@ -23,7 +23,7 @@ class Admin::TeamsController < Admin::AdminsController
   
   def update
     if @team.update team_params
-      flash[:notice] = "Team has been updated successfully!"
+      flash[:notice] = "#{@team.name} has been updated successfully!"
       redirect_to admin_teams_path
     else
       flash[:error] = "Error when updating team. Please try again"

@@ -17,7 +17,7 @@ describe "Admin edit team" do
     
     click_button "SUBMIT"
     
-    expect(page).to have_content("Team has been updated successfully!")
+    expect(page).to have_content("Edit Test has been updated successfully!")
     expect(page).to have_content("Edit Test")
   end
   
@@ -25,7 +25,7 @@ describe "Admin edit team" do
     click_link "TEAMS"
     click_link team.name
     
-    fill_in "Name", :with => "TS"
+    fill_in "Name", :with => "S"
     
     click_button "SUBMIT"
     expect(page).to have_content("Name is too short")

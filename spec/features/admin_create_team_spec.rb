@@ -16,7 +16,7 @@ describe "Admin create team" do
 
     click_button "SUBMIT"
 
-    expect(page).to have_content("New team has been created!")
+    expect(page).to have_content("New Team team has been created!")
     expect(page).to have_content("New Team")
   end
 end
