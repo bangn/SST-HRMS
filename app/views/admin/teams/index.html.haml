@@ -1,0 +1,13 @@
+.container.clearfix
+  = show_error_messages_if_any [flash[:error]]
+
+  .add-button-link.btn-primary.fa.fa-user-plus
+    = link_to "Create new team", new_admin_team_path
+  
+  - if @teams.any?
+    #items-list.well.well-md.list-group
+    - @teams.to_a.each do |team|
+      -#= render :partial => "teams_list", locals: {:team => team}
+
+    .text-center
+      = paginate @teams

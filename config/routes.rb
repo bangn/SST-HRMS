@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root :to => "users#index"
     get '/users/search' => 'users#search'
     resources :users
+    resources :teams
   end
 
   # mail_view preview
