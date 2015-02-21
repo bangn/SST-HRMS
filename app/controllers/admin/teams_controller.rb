@@ -33,7 +33,9 @@ class Admin::TeamsController < Admin::AdminsController
   
   def destroy
     team_name = @team.name
+    team_id = @team.id
     if @team.destroy
+      remove_team_id_from_user team_id
       flash[:notice] = "#{team_name} has been successfully deleted!"
     else
       flash[:error] = "Error when deleting #{team_name}. Please try again"
@@ -49,5 +51,12 @@ class Admin::TeamsController < Admin::AdminsController
   
   def set_team
     @team = Team.find(params[:id])
+  end
+  
+  def remove_team_id_from_user team_id
+    users_to_update = User.where(:team_id => team_id)
+    users_to_update.each do |user|
+      user.update_without_password :team_id => nil
+    end
   end
 end
