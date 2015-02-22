@@ -13,7 +13,7 @@ describe "Admin delete user" do
   end
   
   it "should delete user", :js => true do
-    page.find("#user-#{user.id}").click
+    page.find("#resource-#{user.id}").click
     page.find("#delete-confirm").click
 
     expect(page).not_to have_content("#{user.email}")
@@ -22,7 +22,7 @@ describe "Admin delete user" do
   end
   
   it "should not delete its own", :js => true do
-    page.find("#user-#{admin.id}").click
+    page.find("#resource-#{admin.id}").click
     page.find("#delete-confirm").click
     
     expect(page).to have_content("You can't delete yourself!")

@@ -11,5 +11,5 @@ class Admin::AdminsController < ApplicationController
 
   def set_admin_layout
     self.class.layout "admin/admin"
-  end
+  end  
 end

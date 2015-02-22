@@ -12,7 +12,7 @@ describe "Admin delete team" do
   
   it "should delete team", :js => true do
     click_link "TEAMS"
-    page.find("#team-#{team.id}").click
+    page.find("#resource-#{team.id}").click
     page.find("#delete-confirm").click
 
     expect(page).to have_content("Team 1 has been successfully deleted!")

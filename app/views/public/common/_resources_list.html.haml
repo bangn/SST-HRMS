@@ -1,0 +1,8 @@
+.list-group-item
+  = link_to "#{resource.name}", "#{edit_link_for resource}"
+  %span.badge.fa.fa-edit
+    = link_to "Edit", "#{edit_link_for resource}", :class => "badge"
+  %span.badge.fa.fa-trash
+    = link_to "Delete", "#", :class => "badge", :id => "resource-#{resource.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{link_for resource}"
+  .description
+    = resource.description

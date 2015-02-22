@@ -27,4 +27,22 @@ module ApplicationHelper
 
     html.html_safe
   end
+  
+  def edit_link_for resource
+    case resource
+    when User
+      edit_admin_user_path(resource.id)
+    when Team
+      edit_admin_team_path(resource.id)
+    end
+  end
+  
+  def link_for resource
+    case resource
+    when User
+      admin_user_path(resource.id)
+    when Team
+      admin_team_path(resource.id)
+    end
+  end
 end

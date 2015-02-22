@@ -6,7 +6,7 @@
   - if @teams.any?
     #items-list.well.well-md.list-group
       - @teams.to_a.each do |team|
-        = render :partial => "teams_list", locals: {:team => team}
+        = render :partial => "public/common/resources_list", locals: {:resource => team}
 
     .text-center
       = paginate @teams

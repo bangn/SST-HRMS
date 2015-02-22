@@ -4,4 +4,8 @@ class Team < ActiveRecord::Base
   auto_strip_attributes :name, :squish => true
   validates :name, uniqueness: true
   validates :name, presence: true, length: {minimum: 2}
+  
+  def description
+    "ID: #{id} - #{name}"
+  end
 end
