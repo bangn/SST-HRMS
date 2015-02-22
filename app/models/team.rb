@@ -1,4 +1,5 @@
 class Team < ActiveRecord::Base
+  has_many :users
   paginates_per 10
   auto_strip_attributes :name, :squish => true
   validates :name, uniqueness: true

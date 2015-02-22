@@ -6,9 +6,10 @@
       %div{:role => "tabpanel"}
         / Nav tabs
         %ul.nav.nav-tabs.nav-justified{:role => "tablist"}
-          %li.active{:role => "presentation"}
+          %li{:role => "presentation"}
             = link_to "USERS", admin_users_path, :role => "tab"
-          %li.active{:role => "presentation"}
+          %li{:role => "presentation"}
             = link_to "TEAMS", admin_teams_path, :role => "tab"
-  = yield
+  #main
+    = yield
   = render :partial => "layouts/footer"

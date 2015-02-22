@@ -54,8 +54,7 @@ class Admin::TeamsController < Admin::AdminsController
   end
   
   def remove_team_id_from_user team_id
-    users_to_update = User.where(:team_id => team_id)
-    users_to_update.each do |user|
+    @team.users.each do |user|
       user.update_without_password :team_id => nil
     end
   end
