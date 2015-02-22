@@ -1,0 +1,14 @@
+.container.clearfix
+  = show_error_messages_if_any [flash[:error]]
+  = show_notice_message_if_any flash[:notice]
+  .add-button-link.btn-primary.fa.fa-user-plus
+    = link_to "Create new job", new_admin_job_path
+  - if @jobs.any?
+    #items-list.well.well-md.list-group
+      - @jobs.to_a.each do |job|
+        = render :partial => "public/common/resources_list", locals: {:resource => job}
+
+    .text-center
+      = paginate @jobs
+
+= render :partial => "public/common/confirmation"

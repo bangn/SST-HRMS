@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/users/search' => 'users#search'
     resources :users
     resources :teams
+    resources :jobs
   end
 
   # mail_view preview

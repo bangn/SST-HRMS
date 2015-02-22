@@ -10,6 +10,8 @@
             = link_to "USERS", admin_users_path, :role => "tab"
           %li{:role => "presentation"}
             = link_to "TEAMS", admin_teams_path, :role => "tab"
+          %li{:role => "presentation"}
+            = link_to "JOBS", admin_jobs_path, :role => "tab"
   #main
     = yield
   = render :partial => "layouts/footer"
