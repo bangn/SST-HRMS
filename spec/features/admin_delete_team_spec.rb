@@ -10,7 +10,7 @@ describe "Admin delete team" do
     sign_in_as!(admin)
   end
   
-  it "should delete user", :js => true do
+  it "should delete team", :js => true do
     click_link "TEAMS"
     page.find("#team-#{team.id}").click
     page.find("#delete-confirm").click
