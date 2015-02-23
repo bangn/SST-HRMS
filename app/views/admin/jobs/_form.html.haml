@@ -3,6 +3,7 @@
   .form-group
     = f.label :name
     = f.text_field :name, autofocus: true, class: "form-control"
+    = render :partial => "public/common/teams_dropdown", :locals => {:f => f, :resource => @job}
   .actions
     %button.btn.btn-primary{:type => "submit"}
       %i.fa.fa-send
