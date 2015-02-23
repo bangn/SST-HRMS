@@ -35,7 +35,8 @@ class Admin::TeamsController < Admin::AdminsController
     team_name = @team.name
     team_id = @team.id
     if @team.destroy
-      remove_team_id_from_user team_id
+      remove_team_id_of @team.users, team_id
+      remove_team_id_of @team.jobs, team_id
       flash[:notice] = "#{team_name} has been successfully deleted!"
     else
       flash[:error] = "Error when deleting #{team_name}. Please try again"
@@ -53,9 +54,9 @@ class Admin::TeamsController < Admin::AdminsController
     @team = Team.find(params[:id])
   end
   
-  def remove_team_id_from_user team_id
-    @team.users.each do |user|
-      user.update_without_password :team_id => nil
+  def remove_team_id_of(resources, team_id)
+    resources.each do |resource|
+      resource.update :team_id => nil
     end
   end
 end

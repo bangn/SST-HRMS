@@ -42,7 +42,10 @@ class Admin::JobsController < Admin::AdminsController
   
   private
   def job_params
-    params.require(:job).permit(:name)
+    params.require(:job).permit(
+      :name,
+      :team_id
+    )
   end
   
   def set_job

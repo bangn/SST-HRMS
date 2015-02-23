@@ -1,4 +1,5 @@
 class Job < ActiveRecord::Base
+  belongs_to :team
   paginates_per 10
   auto_strip_attributes :name, :squish => true
   validates :name, uniqueness: true
