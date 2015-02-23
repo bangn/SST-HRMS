@@ -6,6 +6,8 @@ class Job < ActiveRecord::Base
   validates :name, presence: true, length: {minimum: 4}
   
   def description
-    "ID: #{id} - #{name}"
+    team = Team.find_by_id(team_id)
+    team_name = team.nil? ? "Unknown" : team.name
+    "ID: #{id} - #{team_name}"
   end
 end
