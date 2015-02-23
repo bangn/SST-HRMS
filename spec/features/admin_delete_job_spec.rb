@@ -8,7 +8,7 @@ describe "Admin create jobs" do
     sign_in_as! admin
   end
 
-  it "should create new job", :focus => true, :driver => :selenium do
+  it "should delete job" do
     click_link "JOBS"
     click_link "Create new job"
 
