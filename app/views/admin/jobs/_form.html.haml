@@ -3,8 +3,24 @@
   .form-group
     = f.label :name
     = f.text_field :name, autofocus: true, class: "form-control"
+  .form-group
+    = f.label :start_date
+    = f.text_field :start_date, autofocus: true, class: "form-control datepicker"
+  .form-group
+    = f.label :end_date
+    = f.text_field :end_date, autofocus: true, class: "form-control datepicker"
+  .form-group
     = render :partial => "public/common/teams_dropdown", :locals => {:f => f, :resource => @job}
   .actions
     %button.btn.btn-primary{:type => "submit"}
       %i.fa.fa-send
         SUBMIT
+
+:javascript
+  $(function() {
+    $(".datepicker").datepicker(
+      {showOtherMonths: true,
+      selectOtherMonths: true,
+      dateFormat: "dd-mm-yy"}
+    );
+  });

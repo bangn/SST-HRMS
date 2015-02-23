@@ -44,7 +44,9 @@ class Admin::JobsController < Admin::AdminsController
   def job_params
     params.require(:job).permit(
       :name,
-      :team_id
+      :team_id,
+      :start_date,
+      :end_date
     )
   end
   
