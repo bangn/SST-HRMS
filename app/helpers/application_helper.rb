@@ -43,6 +43,8 @@ module ApplicationHelper
       admin_user_path(resource.id)
     when Team
       admin_team_path(resource.id)
+    when Job
+      admin_job_path(resource.id)
     end
   end
 end

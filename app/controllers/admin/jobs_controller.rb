@@ -20,6 +20,15 @@ class Admin::JobsController < Admin::AdminsController
     end
   end
   
+  def destroy
+    if @job.destroy
+      flash[:notice] = "Job has been deleted successfully!"
+    else
+      flash[:error] = "Job has not been deleted. Please check again"
+    end
+    render :nothing => true
+  end
+  
   private
   def job_params
     params.require(:job).permit(:name)
