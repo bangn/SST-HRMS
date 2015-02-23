@@ -1,5 +1,6 @@
 class Admin::JobsController < Admin::AdminsController
   before_filter :set_job, :only => [:show, :edit, :update, :destroy, :delete]
+  
   def index
     @jobs = Job.all.order(:created_at).page params[:page]
   end
@@ -17,6 +18,16 @@ class Admin::JobsController < Admin::AdminsController
     else
       flash[:error] = "There is an error when saving. Please try again"
       render :new
+    end
+  end
+  
+  def update
+    if @job.update job_params
+      flash[:notice] = "Job has been updated successfully!"
+      redirect_to admin_jobs_path
+    else
+      flash[:error] = "There is error when trying to update job. Please try again"
+      render :edit
     end
   end
   

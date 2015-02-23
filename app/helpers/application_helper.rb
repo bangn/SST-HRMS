@@ -34,6 +34,8 @@ module ApplicationHelper
       edit_admin_user_path(resource.id)
     when Team
       edit_admin_team_path(resource.id)
+    when Job
+      edit_admin_job_path(resource.id)
     end
   end
   
