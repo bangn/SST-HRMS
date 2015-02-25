@@ -10,7 +10,9 @@
     = f.label :end_date
     = f.text_field :end_date, autofocus: true, class: "form-control datepicker"
   .form-group
-    = render :partial => "public/common/teams_dropdown", :locals => {:f => f, :resource => @job}
+    = render :partial => "public/common/states_dropdown", :locals => {:f => f, :select_id => @job.state_id}
+  .form-group
+    = render :partial => "public/common/teams_dropdown", :locals => {:f => f, :select_id => @job.team_id}
   .actions
     %button.btn.btn-primary{:type => "submit"}
       %i.fa.fa-send

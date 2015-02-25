@@ -1,0 +1,5 @@
+= f.label :state_id, "State"
+%select.form-control{:id => "#{f.object_name}_state_id", :name => "#{f.object_name}[state_id]", :disabled => !current_user.admin?}
+  - State.all.each do |state|
+    %option{:value => "#{state.id}", :selected => state.id == select_id}
+      = state.name

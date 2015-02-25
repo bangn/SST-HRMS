@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "Admin create jobs" do
   let!(:admin) {FactoryGirl.create(:admin)}
-  let!(:team_1) {FactoryGirl.create(:team, :name => "Truss")}
-  let!(:team_2) {FactoryGirl.create(:team, :name => "Developer")}
+  let!(:team) {FactoryGirl.create(:team, :name => "Developer")}
+  let!(:new_state) {FactoryGirl.create(:state, :name => "New State")}
 
   before :each do
     admin.confirm!
@@ -22,11 +22,40 @@ describe "Admin create jobs" do
     expect(page).to have_content("New job has been created!")
   end
   
+  it "should create new job with team name" do
+    click_link "JOBS"
+    click_link "Create new job"
+
+    fill_in "Name", :with => "This is a new job"
+    select "Developer", :from => "Belongs to team"
+
+    click_button "SUBMIT"
+    
+    expect(page).to have_content("This is a new job")
+    expect(page).to have_content("Developer")
+    expect(page).to have_content("New job has been created!")
+  end
+  
+  it "should create new job with status name" do
+    click_link "JOBS"
+    click_link "Create new job"
+
+    fill_in "Name", :with => "This is a new job"
+    select "New State", :from => "State"
+
+    click_button "SUBMIT"
+    
+    expect(page).to have_content("This is a new job")
+    expect(page).to have_content("New State")
+    expect(page).to have_content("New job has been created!")
+  end
+  
   it "should show error if end date presents but start date does not" do
     click_link "JOBS"
     click_link "Create new job"
 
     fill_in "Name", :with => "This is a new job"
+    fill_in "Start date", with: ""
     fill_in "End date", with: "24-02-2015"
     
     click_button "SUBMIT"

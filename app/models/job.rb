@@ -1,5 +1,7 @@
 class Job < ActiveRecord::Base
   belongs_to :team
+  belongs_to :job
+  belongs_to :state
   paginates_per 10
   auto_strip_attributes :name, :squish => true
   validates :name, uniqueness: true
@@ -8,9 +10,8 @@ class Job < ActiveRecord::Base
   validate :validate_job_time_range
   
   def description
-    team = Team.find_by_id(team_id)
     team_name = team.nil? ? "Unknown" : team.name
-    "ID: #{id} - #{team_name}"
+    "ID: #{id} - #{team_name} -#{state.name if state}"
   end
   
   def validate_job_time_range

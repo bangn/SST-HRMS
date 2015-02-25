@@ -2,5 +2,5 @@
 %select.form-control{:id => "#{f.object_name}_team_id", :name => "#{f.object_name}[team_id]", :disabled => !current_user.admin?}
   %option
   - Team.all.each do |team|
-    %option{:value => "#{team.id}", :selected => resource.nil? ? false : team.id == resource.team_id}
+    %option{:value => "#{team.id}", selected: team.id == select_id}
       = team.name

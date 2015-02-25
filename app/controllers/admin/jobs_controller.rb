@@ -46,7 +46,8 @@ class Admin::JobsController < Admin::AdminsController
       :name,
       :team_id,
       :start_date,
-      :end_date
+      :end_date,
+      :state_id
     )
   end
   
