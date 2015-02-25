@@ -40,10 +40,12 @@
       background-color: $blueLight;
     }
   }
-
   .description {
     margin-left: $marginDefault / 2;
     font-size: 12px;
+  }
+  .odd-item {
+    background-color: rgb(242, 251, 252);
   }
 }
 
