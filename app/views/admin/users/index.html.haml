@@ -23,7 +23,8 @@
   - if @users.any?
     #items-list.well.well-md.list-group
       - @users.to_a.each do |user|
-        = render :partial => "public/common/resources_list", locals: {:resource => user}
+        .list-group-item{class: cycle("odd-item", "even-item")}
+          = render :partial => "public/common/resource_view", locals: {:resource => user}
 
     .text-center
       = paginate @users

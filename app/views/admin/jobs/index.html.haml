@@ -5,8 +5,9 @@
     = link_to "Create new job", new_admin_job_path
   - if @jobs.any?
     #items-list.well.well-md.list-group
-      - @jobs.to_a.each do |job|
-        = render :partial => "public/common/resources_list", locals: {:resource => job}
+      - @jobs.each do |job|
+        .list-group-item{class: cycle("odd-item", "even-item")}
+          = render :partial => "public/common/resource_view", locals: {:resource => job}
 
     .text-center
       = paginate @jobs
