@@ -5,12 +5,12 @@
     .container.dashboard
       %div{:role => "tabpanel"}
         / Nav tabs
-        %ul.nav.nav-tabs.nav-justified{:role => "tablist"}
-          %li{:role => "presentation"}
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li.col-xs-4{:role => "presentation"}
             = link_to "USERS", admin_users_path, :role => "tab"
-          %li{:role => "presentation"}
+          %li.col-xs-4{:role => "presentation"}
             = link_to "TEAMS", admin_teams_path, :role => "tab"
-          %li{:role => "presentation"}
+          %li.col-xs-4{:role => "presentation"}
             = link_to "JOBS", admin_jobs_path, :role => "tab"
   #main
     = yield
