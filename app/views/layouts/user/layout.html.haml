@@ -1,0 +1,17 @@
+= render :partial => "layouts/head"
+%body
+  = render :partial => "layouts/header"
+  .article
+    .container.dashboard
+      %div{:role => "tabpanel"}
+        / Nav tabs
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li.col-xs-4{:role => "presentation"}
+            = link_to "EDIT PROFILE", "", :role => "tab"
+          %li.col-xs-4{:role => "presentation"}
+            = link_to "TIMESHEETS", "", :role => "tab"
+          %li.col-xs-4{:role => "presentation"}
+            = link_to "LEAVES", "", :role => "tab"
+  #main
+    = yield
+  = render :partial => "layouts/footer"

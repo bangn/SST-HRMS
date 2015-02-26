@@ -10,6 +10,6 @@ class Admin::AdminsController < ApplicationController
   end
 
   def set_admin_layout
-    self.class.layout "admin/admin_layout"
+    self.class.layout "admin/layout"
   end  
 end
