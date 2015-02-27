@@ -8,7 +8,6 @@ class User::UsersController < ApplicationController
   end
   
   def update
-    sanitize_user_params
     if @user.update_without_password user_params
       flash[:notice] = "Your profile has been updated successfully!"
     else
@@ -26,16 +25,7 @@ class User::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :first_name,
-      :last_name,
-      :password,
-      :password_confirmation
+      :last_name
     )
-  end
-  
-  def sanitize_user_params
-    if user_params[:password].blank?
-      user_params.delete :password
-      user_params.delete :password_confirmation
-    end
   end
 end

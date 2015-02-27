@@ -5,13 +5,16 @@
     = show_notice_message_if_any flash[:notice]
     .form-group
       = f.label :email
-      = f.email_field :email, autofocus: true, class: "form-control", disabled: params[:action] == "edit"
+      = f.email_field :email, autofocus: true, class: "form-control", disabled: true
     .form-group
       = f.label :first_name
       = f.text_field :first_name, autofocus: true, class: "form-control"
     .form-group
       = f.label :last_name
       = f.text_field :last_name, autofocus: true, class: "form-control"
+    .form-group
+      = f.label :team
+      = f.text_field :team, autofocus: true, class: "form-control", disabled: true, value: "#{@user.team.name}"
 
     .actions
       %button.btn.btn-primary{:type => "submit"}
