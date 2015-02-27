@@ -4,7 +4,7 @@ class SessionsController < Devise::SessionsController
     if user.admin?
       "/admin"
     else
-      "/dashboard"
+      "/user"
     end
   end
 end

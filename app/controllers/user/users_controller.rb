@@ -7,8 +7,35 @@ class User::UsersController < ApplicationController
     self.class.layout "user/layout"
   end
   
+  def update
+    sanitize_user_params
+    if @user.update_without_password user_params
+      flash[:notice] = "Your profile has been updated successfully!"
+    else
+      flash[:error] = "Error when saving your profile. Please try again"
+    end
+
+    render :edit
+  end
+  
   private
   def set_user
     @user = current_user
+  end
+  
+  def user_params
+    params.require(:user).permit(
+      :first_name,
+      :last_name,
+      :password,
+      :password_confirmation
+    )
+  end
+  
+  def sanitize_user_params
+    if user_params[:password].blank?
+      user_params.delete :password
+      user_params.delete :password_confirmation
+    end
   end
 end

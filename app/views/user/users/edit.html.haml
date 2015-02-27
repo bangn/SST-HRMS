@@ -1,5 +1,9 @@
 .container
-  .col-sm-6.col-md-offset-3
-    %h2 Edit Profile
+  .col-sm-6.col-sm-offset-3
+    %h2 Profile
     %hr/
-    =render partial: "form"
+    #user-profile
+      =render partial: "form"
+    #user-info.pull-right
+      = render partial: "info"
+    
