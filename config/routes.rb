@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   end
   
   namespace :user do
-    root to: "users#edit"
+    root to: "timesheets#index"
     resources :users
+    resources :timesheets
+    resources :leaves
   end
 
   # mail_view preview

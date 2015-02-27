@@ -7,9 +7,9 @@
         / Nav tabs
         %ul.nav.nav-tabs{:role => "tablist"}
           %li.col-xs-4{:role => "presentation"}
-            = link_to "TIMESHEETS", "", :role => "tab"
+            = link_to "TIMESHEETS", user_timesheets_path(current_user), :role => "tab"
           %li.col-xs-4{:role => "presentation"}
-            = link_to "LEAVES", "", :role => "tab"
+            = link_to "LEAVES", user_leaves_path(current_user), :role => "tab"
           %li.col-xs-4{:role => "presentation"}
             = link_to "PROFILE", edit_user_user_path(current_user), :role => "tab"
 
