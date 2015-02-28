@@ -1,4 +1,4 @@
-class Team < ActiveRecord::Base
+class Timesheet < ActiveRecord::Base
   paginates_per 10
   auto_strip_attributes :description, :duration, :squish => true
   validates :description, length: {minimum: 2}
