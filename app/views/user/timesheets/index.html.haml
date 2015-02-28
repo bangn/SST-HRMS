@@ -1,1 +1,17 @@
-%h2 Timesheets
+.container.clearfix
+  = show_error_messages_if_any [flash[:error]]
+  = show_notice_message_if_any flash[:notice]
+
+  .add-button-link.btn-primary.fa.fa-user-plus
+    = link_to "Log work", new_user_timesheet_path
+
+  - if @timesheets.any?
+    #items-list.well.well-md.list-group
+      - @timesheets.to_a.each do |timesheet|
+        .list-group-item{class: cycle("odd-item", "even-item")}
+          = render :partial => "public/common/resource_view", locals: {:resource => timesheet}
+
+    .text-center
+      = paginate @timesheets
+      
+= render :partial => "public/common/confirmation"
