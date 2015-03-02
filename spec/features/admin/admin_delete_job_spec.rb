@@ -15,7 +15,7 @@ describe "Admin delete jobs" do
     fill_in "Name", :with => "This is a new job"
     click_button "SUBMIT"
     
-    page.find("#resource-1").click
+    page.find("#delete-resource-1").click
     page.find("#delete-confirm").click
 
     expect(page).to have_content("Job has been deleted successfully!")    

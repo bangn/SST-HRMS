@@ -1,4 +1,5 @@
 class User::TimesheetsController < User::UsersController
+  before_filter :set_timesheet, only: [:update, :show, :edit, :destroy]
   def index
     @timesheets = Timesheet.where(user_id: @user.id).order(:working_date).page params[:page]
   end
@@ -19,6 +20,16 @@ class User::TimesheetsController < User::UsersController
     end
   end
   
+  def update
+    if @timesheet.update timesheet_params
+      flash[:notice] = "Work log has been updated successfully!"
+      redirect_to user_timesheets_path
+    else
+      flash[:notice] = "Error when updating work log. Please try again"
+      render :edit
+    end
+  end
+  
   private
   def timesheet_params
     params.require(:timesheet).permit(
@@ -26,5 +37,9 @@ class User::TimesheetsController < User::UsersController
       :working_date,
       :duration
     )
+  end
+  
+  def set_timesheet
+    @timesheet = Timesheet.find(params[:id])
   end
 end
