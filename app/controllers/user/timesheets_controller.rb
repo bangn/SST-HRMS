@@ -30,6 +30,16 @@ class User::TimesheetsController < User::UsersController
     end
   end
   
+  def destroy
+    if @timesheet.destroy
+      flash[:notice] = "Work log has been deleted successfully!"
+    else
+      flash[:error] = "Error when deleting work log. Please try again"
+    end
+    
+    render nothing: true
+  end
+  
   private
   def timesheet_params
     params.require(:timesheet).permit(
