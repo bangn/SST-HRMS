@@ -6,7 +6,7 @@
   - if @jobs.any?
     #items-list.well.well-md.list-group
       - @jobs.each do |job|
-        .list-group-item{class: cycle("odd-item", "even-item")}
+        %table.list-group-item{class: cycle("odd-item", "even-item")}
           = render :partial => "public/common/resource_view", locals: {:resource => job}
 
     .text-center

@@ -8,7 +8,7 @@
   - if @timesheets.any?
     #items-list.well.well-md.list-group
       - @timesheets.to_a.each do |timesheet|
-        .list-group-item{class: cycle("odd-item", "even-item")}
+        %table.list-group-item{class: cycle("odd-item", "even-item")}
           = render :partial => "public/common/resource_view", locals: {:resource => timesheet}
 
     .text-center

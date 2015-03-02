@@ -1,7 +1,11 @@
-= link_to "#{resource.name}", "#{edit_link_for resource}"
-%span.badge.fa.fa-edit
-  = link_to "Edit", "#{edit_link_for resource}", :class => "badge", :id => "edit-resource-#{resource.id}"
-%span.badge.fa.fa-trash
-  = link_to "Delete", "#", :class => "badge", :id => "delete-resource-#{resource.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{link_for resource}"
-.description
-  = resource.description
+%tr
+  %td.resource-info
+    = link_to "#{resource.name}", "#{edit_link_for resource}"
+    .description
+      = resource.description
+  %td
+    %span.badge.fa.fa-edit
+      = link_to "Edit", "#{edit_link_for resource}", :class => "badge", :id => "edit-resource-#{resource.id}"
+  %td 
+    %span.badge.fa.fa-trash
+      = link_to "Delete", "#", :class => "badge", :id => "delete-resource-#{resource.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{link_for resource}"
