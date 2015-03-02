@@ -36,6 +36,8 @@ module ApplicationHelper
       edit_admin_team_path(resource.id)
     when Job
       edit_admin_job_path(resource.id)
+    when Timesheet
+      edit_user_timesheet_path(resource.id)
     end
   end
   
@@ -47,6 +49,8 @@ module ApplicationHelper
       admin_team_path(resource.id)
     when Job
       admin_job_path(resource.id)
+    when Timesheet
+      user_timesheet_path(resource.id)
     end
   end
 end

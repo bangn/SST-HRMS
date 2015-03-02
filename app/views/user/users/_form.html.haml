@@ -14,7 +14,7 @@
       = f.text_field :last_name, autofocus: true, class: "form-control"
     .form-group
       = f.label :team
-      = f.text_field :team, autofocus: true, class: "form-control", disabled: true, value: "#{@user.team.name}"
+      = f.text_field :team, autofocus: true, class: "form-control", disabled: true, value: "#{@user.team.name if @user.team}"
 
     .actions
       %button.btn.btn-primary{:type => "submit"}

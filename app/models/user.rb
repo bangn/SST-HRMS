@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   paginates_per 10
   validates :password_confirmation, presence: true, length: {minimum: 8}, :if => :password_required?
   belongs_to :team
+  has_many :timesheets
   
   alias_attribute :name, :email
 
