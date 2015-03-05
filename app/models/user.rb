@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
     team_name = team.nil? ? "Unknown" : team.name
     "ID: #{id} - #{full_name} - #{team_name}"
   end
+  
+  def available_jobs
+    self.team.jobs.order(:id) if self.team
+  end
 end

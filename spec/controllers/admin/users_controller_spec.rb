@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Admin::UsersController do
   let!(:admin) { FactoryGirl.create(:admin) }
   let!(:user) { FactoryGirl.create(:user) }
+
   before do
     admin.confirm!
     user.confirm!

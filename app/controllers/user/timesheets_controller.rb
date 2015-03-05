@@ -45,7 +45,8 @@ class User::TimesheetsController < User::UsersController
     params.require(:timesheet).permit(
       :description,
       :working_date,
-      :duration
+      :duration,
+      :job_id
     )
   end
   

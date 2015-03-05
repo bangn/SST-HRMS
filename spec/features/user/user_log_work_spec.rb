@@ -1,7 +1,13 @@
 require 'spec_helper'
 
 describe 'User log work' do
-  let!(:user) {FactoryGirl.create(:user)}
+  let!(:team) {FactoryGirl.create(:team, name: "Test team")}
+  let!(:user) {FactoryGirl.create(:user, team: team)}
+  let!(:job) {FactoryGirl.create(
+    :job,
+    team: team,
+    name: "Test select job from dropdown"
+    )}
   
   before :each do
     user.confirm!
@@ -11,12 +17,16 @@ describe 'User log work' do
   it "should create work log" do
     click_link "TIMESHEETS"
     click_link "Log work"
-    
+
+    select "Test select job from dropdown", from: "Jobs"
     fill_in "Description", with: "This is a test work log"
     fill_in "Duration", with: 2
     fill_in "Working date", with: "02-03-2015"
     
     click_button "SAVE"
+
+    user.reload
+    user.timesheets.first.job.should == job
     
     expect(page).to have_content("New work log has been created successfully!")
     expect(page).to have_content("This is a test work log")

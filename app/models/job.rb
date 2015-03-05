@@ -1,7 +1,7 @@
 class Job < ActiveRecord::Base
   belongs_to :team
-  belongs_to :job
   belongs_to :state
+  
   paginates_per 10
   auto_strip_attributes :name, :squish => true
   validates :name, uniqueness: true
