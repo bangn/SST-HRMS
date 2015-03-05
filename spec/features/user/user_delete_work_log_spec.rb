@@ -22,5 +22,6 @@ describe "User delete work log" do
     find('#delete-confirm').click
     
     expect(page).to have_content("Work log has been deleted successfully!")
+    expect(page).not_to have_content("This log will be deleted")
   end
 end

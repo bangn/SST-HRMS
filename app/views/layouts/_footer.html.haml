@@ -8,6 +8,12 @@
         %br
         %br Phone: +61 422 375 093
         %br Email: thebangnguyen@gmail.com
+  = csrf_meta_tag
 
 :javascript
   enableDismiss($(".alert"), $(".closable"));
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
