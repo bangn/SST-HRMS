@@ -1,7 +1,7 @@
 .container.clearfix
   = show_error_messages_if_any [flash[:error]]
   = show_notice_message_if_any flash[:notice]
-  .add-button-link.btn-primary.fa.fa-user-plus
+  .add-button-link.btn-primary.fa.fa-plus
     = link_to "Create new team", new_admin_team_path
   - if @teams.any?
     #items-list.well.well-md.list-group

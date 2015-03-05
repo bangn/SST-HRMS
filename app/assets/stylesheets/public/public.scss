@@ -69,7 +69,7 @@
 
 .add-button-link {
   @extend .button-link;
-  width: 155px;
+  width: auto;
   margin-bottom: $marginDefault;
   padding: 10px;
   &:before {
