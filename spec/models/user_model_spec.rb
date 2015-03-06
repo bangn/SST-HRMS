@@ -2,8 +2,12 @@ require 'spec_helper'
 
 describe "User" do
   let!(:team) {FactoryGirl.create(:team)}
-  let!(:job1) {FactoryGirl.create(:job, team: team)}
-  let!(:job2) {FactoryGirl.create(:job, team: team)}
+  let!(:state_opened) {FactoryGirl.create(:state, name: "Opened")}
+  let!(:state_inprogress) {FactoryGirl.create(:state, name: "In Progress")}
+  let!(:state_completed) {FactoryGirl.create(:state, name: "Completed")}
+  let!(:job1) {FactoryGirl.create(:job, team: team, state: state_opened)}
+  let!(:job2) {FactoryGirl.create(:job, team: team, state: state_inprogress)}
+  let!(:job3) {FactoryGirl.create(:job, team: team, state: state_completed)}
   let!(:user) { FactoryGirl.create(:user, team: team) }
   let!(:user2) {FactoryGirl.create(:user)}
   it "should return appropriate available jobs for user" do
