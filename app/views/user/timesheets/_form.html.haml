@@ -11,7 +11,7 @@
       = f.text_field :duration, autofocus: true, class: "form-control"
     .form-group
       = f.label :working_date
-      = f.text_field :working_date, autofocus: true, class: "form-control datepicker"
+      = f.text_field :working_date, autofocus: true, class: "form-control datepicker", value: @timesheet.working_date ? @timesheet.working_date.strftime("%d-%m-%Y") : Date.today.strftime("%d-%m-%Y")
 
     .actions
       %button.btn.btn-primary{:type => "submit"}

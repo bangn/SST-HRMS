@@ -5,10 +5,10 @@
     = f.text_field :name, autofocus: true, class: "form-control"
   .form-group
     = f.label :start_date
-    = f.text_field :start_date, autofocus: true, class: "form-control datepicker", value: Date.today.strftime("%d-%m-%Y")
+    = f.text_field :start_date, autofocus: true, class: "form-control datepicker", value: @job.start_date ? @job.start_date.strftime("%d-%m-%Y") : Date.today.strftime("%d-%m-%Y")
   .form-group
     = f.label :end_date
-    = f.text_field :end_date, autofocus: true, class: "form-control datepicker"
+    = f.text_field :end_date, autofocus: true, class: "form-control datepicker", value: @job.end_date ? @job.end_date.strftime("%d-%m-%Y") : nil
   .form-group
     = render :partial => "public/common/states_dropdown", :locals => {:f => f, :select_id => @job.state_id}
   .form-group
