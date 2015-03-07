@@ -7,7 +7,7 @@ class Job < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :name, presence: true, length: {minimum: 4}
   validates :start_date, :presence => {:message => "should be presented!"}, :if => "end_date.present?"
-  validates :end_date, :presence => {:message => "should be presented!"}, :if => "state == State.COMPLETED.first"
+  validates :end_date, :presence => {:message => "should be presented!"}, :if => "state && state == State.COMPLETED.first"
   validate :validate_job_time_range
   validate :validate_job_status, :if => "end_date.present?"
   

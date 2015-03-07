@@ -16,7 +16,7 @@ describe "Admin delete team" do
     page.find("#delete-resource-#{team.id}").click
     page.find("#delete-confirm").click
 
-    expect(page).to have_content("Team #{team.id} has been successfully deleted!")
+    expect(page).to have_content("#{team.name} has been successfully deleted!")
     expect(page).to have_content("#{team_2.name}")
   end
 end
