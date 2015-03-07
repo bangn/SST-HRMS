@@ -1,7 +1,9 @@
 class State < ActiveRecord::Base
   has_many :jobs
   
-  scope :COMPLETED, -> {where(name: "Completed")}
-  scope :IN_PROGRESS, -> {where(name: "In Progress")}
-  scope :OPENED, -> {where(name: "Opened")}  
+  TYPES = {
+    :opened => 1,
+    :in_progress => 2,
+    :completed => 3
+  }
 end

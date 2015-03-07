@@ -3,13 +3,11 @@ require 'spec_helper'
 describe 'User log work' do
   let!(:team) {FactoryGirl.create(:team, name: "Test team")}
   let!(:user) {FactoryGirl.create(:user, team: team)}
-  let!(:opened_state) {FactoryGirl.create(:state, :name=> "Opened")}
-  let!(:completed_state) {FactoryGirl.create(:state, :name=> "Completed")}
   let!(:job) {FactoryGirl.create(
     :job,
     team: team,
     name: "Test select job from dropdown",
-    :state => State.OPENED.first
+    :state_id => State::TYPES[:opened]
     )}
   
   before :each do

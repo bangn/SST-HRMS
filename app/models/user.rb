@@ -24,6 +24,6 @@ class User < ActiveRecord::Base
   end
   
   def available_jobs
-    self.team.jobs.where.not(state: State.COMPLETED).order(:id) if self.team
+    self.team.jobs.where.not(state_id: State::TYPES[:completed]).order(:id) if self.team
   end
 end
