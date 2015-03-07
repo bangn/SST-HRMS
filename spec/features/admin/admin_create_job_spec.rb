@@ -16,7 +16,7 @@ describe "Admin create jobs" do
 
     fill_in "Name", :with => "This is a new job"
 
-    click_button "SUBMIT"
+    click_button "SAVE"
     
     expect(page).to have_content("This is a new job")
     expect(page).to have_content("New job has been created!")
@@ -29,7 +29,7 @@ describe "Admin create jobs" do
     fill_in "Name", :with => "This is a new job"
     select "Developer", :from => "Belongs to team"
 
-    click_button "SUBMIT"
+    click_button "SAVE"
     
     expect(page).to have_content("This is a new job")
     expect(page).to have_content("Developer")
@@ -43,7 +43,7 @@ describe "Admin create jobs" do
     fill_in "Name", :with => "This is a new job"
     select "New State", :from => "State"
 
-    click_button "SUBMIT"
+    click_button "SAVE"
     
     expect(page).to have_content("This is a new job")
     expect(page).to have_content("New State")
@@ -58,7 +58,7 @@ describe "Admin create jobs" do
     fill_in "Start date", with: ""
     fill_in "End date", with: "24-02-2015"
     
-    click_button "SUBMIT"
+    click_button "SAVE"
     
     expect(page).to have_content("Start date should be presented!")
   end
@@ -71,7 +71,7 @@ describe "Admin create jobs" do
     fill_in "Start date", with: "25-02-2015"
     fill_in "End date", with: "24-02-2015"
     
-    click_button "SUBMIT"
+    click_button "SAVE"
     
     expect(page).to have_content("End date should be on the same day as start date or in the future")
   end

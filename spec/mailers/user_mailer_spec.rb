@@ -3,6 +3,7 @@ require "spec_helper"
 describe UserMailer do
   describe "welcome email" do
     let!(:user) {FactoryGirl.create(:user)}
+    
     before(:all) do
       @email = UserMailer.welcome_to_strongtie(user)
     end

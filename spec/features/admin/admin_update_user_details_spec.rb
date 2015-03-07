@@ -15,7 +15,7 @@ describe "Admin update details" do
     fill_in "First name", with: "First"
     fill_in "Last name", with: "Last"
 
-    click_button "SUBMIT"
+    click_button "SAVE"
 
     expect(page).to have_content("First Last")
   end

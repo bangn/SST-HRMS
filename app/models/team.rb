@@ -6,7 +6,7 @@ class Team < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :name, presence: true, length: {minimum: 2}
   
-  def description
+  def details
     "ID: #{id} - #{name}"
   end
 end

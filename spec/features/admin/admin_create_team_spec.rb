@@ -14,7 +14,7 @@ describe "Admin create team" do
 
     fill_in "Name", :with => "New Team"
 
-    click_button "SUBMIT"
+    click_button "SAVE"
 
     expect(page).to have_content("New Team team has been created!")
     expect(page).to have_content("New Team")

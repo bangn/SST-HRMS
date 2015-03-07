@@ -13,8 +13,9 @@ describe "Admin delete jobs" do
     click_link "Create new job"
 
     fill_in "Name", :with => "This is a new job"
-    click_button "SUBMIT"
-    
+    fill_in "End date", :with => "07-03-2015"
+    click_button "SAVE"
+
     page.find("#delete-resource-1").click
     page.find("#delete-confirm").click
 

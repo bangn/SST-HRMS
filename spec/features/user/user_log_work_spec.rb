@@ -3,10 +3,13 @@ require 'spec_helper'
 describe 'User log work' do
   let!(:team) {FactoryGirl.create(:team, name: "Test team")}
   let!(:user) {FactoryGirl.create(:user, team: team)}
+  let!(:opened_state) {FactoryGirl.create(:state, :name=> "Opened")}
+  let!(:completed_state) {FactoryGirl.create(:state, :name=> "Completed")}
   let!(:job) {FactoryGirl.create(
     :job,
     team: team,
-    name: "Test select job from dropdown"
+    name: "Test select job from dropdown",
+    :state => State.OPENED.first
     )}
   
   before :each do
@@ -38,9 +41,9 @@ describe 'User log work' do
     
     fill_in "Description", with: "This is a test work log"
     fill_in "Duration", with: 2
-    
+    fill_in "Working date", :with => ""
     click_button "SAVE"
-    
+
     expect(page).to have_content("Working date can't be blank")
   end
   

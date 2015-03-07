@@ -18,7 +18,7 @@ describe "Admin edit user" do
     fill_in "First name", :with => "simpson"
     fill_in "Last name", :with => "strongtie"
     
-    click_button "SUBMIT"
+    click_button "SAVE"
     
     expect(page).to have_content "simpson strongtie"
   end
@@ -26,7 +26,7 @@ describe "Admin edit user" do
   it "should assign user to team" do
     click_link user.email
     select "Developer", :from => "Belongs to team"
-    click_button "SUBMIT"
+    click_button "SAVE"
     
     expect(page).to have_content("Developer")
   end

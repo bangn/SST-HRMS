@@ -15,7 +15,7 @@ describe "Admin create user" do
     fill_in "Last name", with: "Last"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
-    click_button "SUBMIT"
+    click_button "SAVE"
 
     expect(page).to have_content("New user has been created!")
     expect(page).to have_content("new_user@example.com")
@@ -23,7 +23,7 @@ describe "Admin create user" do
 
   it "should not create user with out email" do
     fill_in "Email", with: ""
-    click_button "SUBMIT"
+    click_button "SAVE"
 
     expect(page).to have_content "Email can't be blank"
   end

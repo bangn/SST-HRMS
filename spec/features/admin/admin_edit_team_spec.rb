@@ -15,7 +15,7 @@ describe "Admin edit team" do
     
     fill_in "Name", :with => "Edit Test"
     
-    click_button "SUBMIT"
+    click_button "SAVE"
     
     expect(page).to have_content("Edit Test has been updated successfully!")
     expect(page).to have_content("Edit Test")
@@ -27,7 +27,7 @@ describe "Admin edit team" do
     
     fill_in "Name", :with => "S"
     
-    click_button "SUBMIT"
+    click_button "SAVE"
     expect(page).to have_content("Name is too short")
     
     click_link "TEAMS"

@@ -2,7 +2,7 @@
   %td.resource-info
     = link_to "#{resource.name}", "#{edit_link_for resource}"
     .description
-      = resource.description
+      = resource.details
   %td
     %span.badge.fa.fa-edit
       = link_to "Edit", "#{edit_link_for resource}", :class => "badge", :id => "edit-resource-#{resource.id}"

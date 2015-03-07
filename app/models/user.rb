@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     full_name.strip.empty? ? "Unknown" : full_name
   end
   
-  def description
+  def details
     team = Team.find_by_id(team_id)
     team_name = team.nil? ? "Unknown" : team.name
     "ID: #{id} - #{full_name} - #{team_name}"

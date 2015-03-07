@@ -11,7 +11,7 @@ class Job < ActiveRecord::Base
   validate :validate_job_time_range
   validate :validate_job_status, :if => "end_date.present?"
   
-  def description
+  def details
     team_name = team.nil? ? "Unknown" : team.name
     "ID: #{id} - #{team_name} -#{state.name if state}"
   end
