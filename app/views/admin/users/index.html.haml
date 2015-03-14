@@ -21,10 +21,9 @@
     = link_to "Create new user", new_admin_user_path
 
   - if @users.any?
-    #items-list.well.well-md.list-group
+    %table.table.table-bordered.table-striped
       - @users.to_a.each do |user|
-        %table.list-group-item{class: cycle("odd-item", "even-item")}
-          = render :partial => "public/common/resource_view", locals: {:resource => user}
+        = render :partial => "public/common/resource_view", locals: {:resource => user}
 
     .text-center
       = paginate @users

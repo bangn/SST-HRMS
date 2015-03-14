@@ -32,27 +32,27 @@
   margin-bottom: $marginDefault * 2;
 }
 
-#items-list {
-  margin-bottom: $marginDefault * 2;
-  .list-group-item {
+.badge {
+  background-color: $blueLight;
+}
+
+.table {
+  .col-edit, .col-delete {
+    width: 2em;
+  }
+  .column-duration {
+    text-align: center;
+  }
+  tbody > tr > td {
     vertical-align: middle;
-    .badge {
-      background-color: $blueLight;
+    .description {
+      margin-left: $marginDefault / 2;
+      font-size: 12px;
     }
-  }
-  .resource-info {
-    width: 90%;
-    padding-left: 5px !important;
-  }
-  .description {
-    margin-left: $marginDefault / 2;
-    font-size: 12px;
-  }
-  .odd-item {
-    background-color: rgb(242, 251, 252);
-  }
-  td, th {
-    padding: 1px 3px 1px 1px !important;
+    .resource-info {
+      width: 90%;
+      padding-left: 5px !important;
+    }
   }
 }
 

@@ -1,8 +1,12 @@
 %tr
-  %td.resource-info
+  %td.col-xs-1
+    = link_to resource.working_date, "#{edit_link_for resource}"
+  %td.column-duration
+    = link_to resource.duration, "#{edit_link_for resource}"
+  %td.col-xs-4
     = link_to "#{resource.name}", "#{edit_link_for resource}"
-    .description
-      = resource.details
+  %td.col-xs-5
+    = link_to resource.description, "#{edit_link_for resource}"
   %td.col-edit
     %span.badge.fa.fa-edit
       = link_to "Edit", "#{edit_link_for resource}", :class => "badge", :id => "edit-resource-#{resource.id}"

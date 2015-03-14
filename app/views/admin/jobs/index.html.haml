@@ -4,10 +4,9 @@
   .add-button-link.btn-primary.fa.fa-plus
     = link_to "Create new job", new_admin_job_path
   - if @jobs.any?
-    #items-list.well.well-md.list-group
+    %table.table.table-bordered.table-striped
       - @jobs.each do |job|
-        %table.list-group-item{class: cycle("odd-item", "even-item")}
-          = render :partial => "public/common/resource_view", locals: {:resource => job}
+        = render :partial => "public/common/resource_view", locals: {:resource => job}
 
     .text-center
       = paginate @jobs
