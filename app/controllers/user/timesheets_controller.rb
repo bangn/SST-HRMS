@@ -21,12 +21,17 @@ class User::TimesheetsController < User::UsersController
   end
   
   def update
-    if @timesheet.update timesheet_params
-      flash[:notice] = "Work log has been updated successfully!"
-      redirect_to user_timesheets_path
-    else
-      flash[:notice] = "Error when updating work log. Please try again"
-      render :edit
+    respond_to do |format|
+      if @timesheet.update timesheet_params
+        format.html do
+          flash[:notice] = "Work log has been updated successfully!"
+          redirect_to user_timesheets_path
+        end
+        format.json {head :no_content}
+      else
+        flash[:notice] = "Error when updating work log. Please try again"
+        render :edit
+      end
     end
   end
   
