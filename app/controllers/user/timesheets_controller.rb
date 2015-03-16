@@ -29,8 +29,11 @@ class User::TimesheetsController < User::UsersController
         end
         format.json {head :no_content}
       else
-        flash[:notice] = "Error when updating work log. Please try again"
-        render :edit
+        format.html do
+          flash[:notice] = "Error when updating work log. Please try again"
+          render :edit
+        end
+        format.json {head 406}
       end
     end
   end

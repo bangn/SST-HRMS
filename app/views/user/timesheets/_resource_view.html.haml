@@ -1,13 +1,14 @@
 %tr
   %td.col-xs-1
     - working_date = resource.working_date.strftime("%d-%m-%Y")
-    = link_to working_date, "#", "data-xeditable" => "true", "data-pk" => "#{resource.id}", "data-type" => "combodate", "data-model" => "timesheet", "data-name" => "working_date", "data-url" => "#{user_timesheet_url(resource)}", "data-initial" => "#{working_date}", "data-title" => "Select date"
+    = link_to working_date, "#", "data-xeditable" => true, "data-pk" => "#{resource.id}", "data-type" => "combodate", "data-model" => "timesheet", "data-name" => "working_date", "data-url" => "#{user_timesheet_url(resource)}", "data-initial" => "#{working_date}", "data-title" => "Select date"
   %td.column-duration
-    = link_to resource.duration, "#{edit_link_for resource}"
+    = link_to resource.duration, "#", "data-xeditable" => true, "data-pk" => "#{resource.id}", "data-type" => "text", "data-model" => "timesheet", "data-name" => "duration", "data-url" => "#{user_timesheet_url(resource)}", "data-initial" => "#{resource.duration}", "data-title" => "Enter duration"
   %td.col-xs-4
     = link_to "#{resource.name}", "#{edit_link_for resource}"
   %td.col-xs-5
-    = link_to resource.description, "#{edit_link_for resource}"
+    = link_to resource.description, "#", "data-xeditable" => true, "data-pk" => "#{resource.id}", "data-type" => "textarea", "data-model" => "timesheet", "data-name" => "description", "data-url" => "#{user_timesheet_url(resource)}", "data-initial" => "#{resource.duration}", "data-title" => "Enter description"
+
   %td.col-edit
     %span.badge.fa.fa-edit
       = link_to "Edit", "#{edit_link_for resource}", :class => "badge", :id => "edit-resource-#{resource.id}"
@@ -16,26 +17,4 @@
       = link_to "Delete", "#", :class => "badge", :id => "delete-resource-#{resource.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{link_for resource}"
 
 :javascript
-  $(function() {
-    return $("[data-xeditable=true]").each(function() {
-      return $(this).editable({
-        format: 'DD-MM-YYYY',    
-        template: 'DD-MM-YYYY',    
-        combodate: {
-          minYear: 2000,
-          maxYear: 2020,
-        },
-        ajaxOptions: {
-          type: "PUT",
-          dataType: "json"
-        },
-        params: function(params) {
-          var railsParams;
-          railsParams = {};
-          railsParams[$(this).data("model")] = {};
-          railsParams[$(this).data("model")][params.name] = params.value;
-          return railsParams;
-        }
-      });
-    });
-  });  
+  enableXEditable();
