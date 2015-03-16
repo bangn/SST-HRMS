@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: fd40a44656ef01425799d7e34e848057887c324e
+  specs:
+    best_in_place (3.0.3)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
+GIT
   remote: git://github.com/guard/guard-jasmine.git
   revision: 4dfd352c0b9f0023dbd5870ff43b36e3afa84981
   specs:
@@ -253,7 +261,7 @@ GEM
       eventmachine (~> 1.0)
       rack (~> 1.0)
     thor (0.19.1)
-    thread_safe (0.3.4)
+    thread_safe (0.3.5)
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
@@ -275,6 +283,7 @@ PLATFORMS
 DEPENDENCIES
   auto_strip_attributes
   awesome_print
+  best_in_place!
   capybara
   database_cleaner
   devise

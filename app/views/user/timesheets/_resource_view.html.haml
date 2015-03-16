@@ -1,15 +1,21 @@
 %tr
   %td.col-xs-1
-    = link_to resource.working_date, "#{edit_link_for resource}"
+    = best_in_place resource, :working_date, :as => :date, :path => user_timesheet_path(resource), :display_with => lambda {|date| date.strftime("%d-%m-%Y")}
   %td.column-duration
-    = link_to resource.duration, "#{edit_link_for resource}"
+    = best_in_place resource, :duration, :as => :input, :path => user_timesheet_path(resource)
   %td.col-xs-4
-    = link_to "#{resource.name}", "#{edit_link_for resource}"
+    = best_in_place resource, :job_id, :as => :select, :path => user_timesheet_path(resource), :collection => resource.available_jobs
   %td.col-xs-5
-    = link_to resource.description, "#{edit_link_for resource}"
+    = best_in_place resource, :description, :as => :textarea, :path => user_timesheet_path(resource)
   %td.col-edit
     %span.badge.fa.fa-edit
       = link_to "Edit", "#{edit_link_for resource}", :class => "badge", :id => "edit-resource-#{resource.id}"
   %td.col-delete
     %span.badge.fa.fa-trash
       = link_to "Delete", "#", :class => "badge", :id => "delete-resource-#{resource.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{link_for resource}"
+:javascript
+  $.datepicker.setDefaults({
+    showOtherMonths: true,
+    selectOtherMonths: true,
+    dateFormat: "dd-mm-yy"
+  });
