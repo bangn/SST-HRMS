@@ -1,11 +1,12 @@
 function enableXEditable() {
   return $("[data-xeditable=true]").each(function() {
     return $(this).editable({
-      format: 'DD-MM-YYYY',    
-      template: 'DD-MM-YYYY',    
-      combodate: {
-        minYear: 2000,
-        maxYear: 2020,
+      date: {
+        format: 'DD-MM-YYYY',
+        viewformat: 'DD-MM-YYYY',
+        datepicker: {
+             weekStart: 1
+        }
       },
       ajaxOptions: {
         type: "PUT",
