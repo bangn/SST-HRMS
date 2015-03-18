@@ -1,9 +1,12 @@
 function enableXEditable() {
   return $("[data-xeditable=true]").each(function() {
     return $(this).editable({
-      date: {
+      combodate: {
         format: 'DD-MM-YYYY',
         viewformat: 'DD-MM-YYYY',
+        template: 'D/MMM/YYYY',
+        minYear: 2010,
+        maxYear: 2050
       },
       ajaxOptions: {
         type: "PUT",
