@@ -14,6 +14,7 @@ gem 'pg'
 gem 'thin'
 gem 'mail_view'
 gem 'auto_strip_attributes'
+gem 'best_in_place', github: 'bernat/best_in_place'
 
 group :development do
   gem 'spring'

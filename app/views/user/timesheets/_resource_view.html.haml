@@ -1,14 +1,12 @@
 %tr
-  %td.col-xs-1
-    - working_date = resource.working_date.strftime("%d-%m-%Y")
-    = link_to working_date, "#", "data-xeditable" => true, "data-pk" => "#{resource.id}", "data-type" => "date", "data-model" => "timesheet", "data-name" => "working_date", "data-url" => "#{user_timesheet_url(resource)}", "data-title" => "Select date"
+  %td.col-xs-1.column-working-date
+    = best_in_place resource, :working_date, :as => :date, :path => user_timesheet_path(resource), :display_with => lambda {|date| date.strftime("%d-%m-%Y")}
   %td.column-duration
     = link_to resource.duration, "#", "data-xeditable" => true, "data-pk" => "#{resource.id}", "data-type" => "text", "data-model" => "timesheet", "data-name" => "duration", "data-url" => "#{user_timesheet_url(resource)}", "data-title" => "Enter duration"
   %td.col-xs-4
     = link_to "#{resource.name}", "#",  "data-xeditable" => true, "data-pk" => "#{resource.id}", "data-type" => "select", "data-model" => "timesheet", "data-name" => "job", "data-url" => "#{user_timesheet_url(resource)}", "data-source" => "#{resource.available_jobs.to_json}", "data-title" => "Choose job"
   %td.col-xs-5
     = link_to resource.description, "#", "data-xeditable" => true, "data-pk" => "#{resource.id}", "data-type" => "textarea", "data-model" => "timesheet", "data-name" => "description", "data-url" => "#{user_timesheet_url(resource)}", "data-title" => "Enter description"
-
   %td.col-edit
     %span.badge.fa.fa-edit
       = link_to "Edit", "#{edit_link_for resource}", :class => "badge", :id => "edit-resource-#{resource.id}"
