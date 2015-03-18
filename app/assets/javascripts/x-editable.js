@@ -4,9 +4,6 @@ function enableXEditable() {
       date: {
         format: 'DD-MM-YYYY',
         viewformat: 'DD-MM-YYYY',
-        datepicker: {
-             weekStart: 1
-        }
       },
       ajaxOptions: {
         type: "PUT",

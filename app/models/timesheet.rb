@@ -14,4 +14,8 @@ class Timesheet < ActiveRecord::Base
   def details
     "Date: #{working_date.strftime("%d-%m-%Y")} - Duration: #{duration} - Description: #{description}"
   end
+
+  def available_jobs
+    user.available_jobs.map {|job| {value: job.id, text: job.name}}
+  end
 end
