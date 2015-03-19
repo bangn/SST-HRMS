@@ -18,7 +18,7 @@ describe "User delete work log" do
     
     click_button "SAVE"
     
-    find("#delete-resource-1").click
+    find("#delete-timesheet-1").click
     find('#delete-confirm').click
     
     expect(page).to have_content("Work log has been deleted successfully!")

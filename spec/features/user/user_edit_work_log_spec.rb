@@ -17,7 +17,7 @@ describe 'User edit work log' do
     fill_in "Working date", with: "02-03-2015"
     click_button "SAVE"
     
-    find("#edit-resource-1").click
+    find("#edit-timesheet-1").click
     fill_in "Description", with: "This work log has been updated"
     click_button "SAVE"
     

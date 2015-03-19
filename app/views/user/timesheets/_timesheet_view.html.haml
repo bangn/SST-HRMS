@@ -1,0 +1,19 @@
+%tr
+  %td.col-xs-1
+    = link_to timesheet.working_date.strftime("%d-%m-%Y"), "#", "data-xeditable" => true, "data-pk" => "#{timesheet.id}", "data-type" => "combodate", "data-model" => "timesheet", "data-name" => "working_date", "data-url" => "#{user_timesheet_url(timesheet)}", "data-value" => "#{timesheet.working_date}", "data-title" => "Select date"
+  %td.column-duration
+    = link_to timesheet.duration, "#", "data-xeditable" => true, "data-pk" => "#{timesheet.id}", "data-type" => "text", "data-model" => "timesheet", "data-name" => "duration", "data-url" => "#{user_timesheet_url(timesheet)}", "data-title" => "Enter duration"
+  %td.col-xs-4
+    = link_to "#{timesheet.name}", "#",  "data-xeditable" => true, "data-pk" => "#{timesheet.id}", "data-type" => "select", "data-model" => "timesheet", "data-name" => "job_id", "data-url" => "#{user_timesheet_url(timesheet)}", "data-source" => "#{timesheet.available_jobs.to_json}", "data-title" => "Choose job"
+  %td.col-xs-5
+    = link_to timesheet.description, "#", "data-xeditable" => true, "data-pk" => "#{timesheet.id}", "data-type" => "textarea", "data-model" => "timesheet", "data-name" => "description", "data-url" => "#{user_timesheet_url(timesheet)}", "data-title" => "Enter description"
+
+  %td.col-edit
+    %span.badge.fa.fa-edit
+      = link_to "Edit", "#{edit_link_for timesheet}", :class => "badge", :id => "edit-timesheet-#{timesheet.id}"
+  %td.col-delete
+    %span.badge.fa.fa-trash
+      = link_to "Delete", "#", :class => "badge", :id => "delete-timesheet-#{timesheet.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{link_for timesheet}"
+
+:javascript
+  enableXEditable();

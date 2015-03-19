@@ -8,7 +8,7 @@
   - if @timesheets.any?
     %table.table.table-bordered.table-striped
       - @timesheets.to_a.each do |timesheet|
-        = render :partial => "resource_view", locals: {:resource => timesheet}
+        = render :partial => "timesheet_view", locals: {:timesheet => timesheet}
 
     .text-center
       = paginate @timesheets

@@ -6,7 +6,8 @@ unless admin
     last_name: "vn",
     password: "password",
     password_confirmation: "password",
-    admin: true
+    admin: true,
+    confirmed_at: Time.now
   )
 end
 
@@ -18,7 +19,8 @@ unless user
     last_name: "vn",
     password: "password",
     password_confirmation: "password",
-    admin: false
+    admin: false,
+    confirmed_at: Time.now
   )
 end
 
