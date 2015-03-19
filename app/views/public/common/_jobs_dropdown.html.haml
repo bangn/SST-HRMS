@@ -1,6 +1,5 @@
 = f.label :job_id, "Jobs"
 %select.form-control{:id => "#{f.object_name}_job_id", :name => "#{f.object_name}[job_id]"}
-  %option
   - if jobs
     - jobs.each do |job|
       %option{:value => "#{job.id}", selected: job.id == select_id}
