@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe 'User edit work log' do
-  let!(:user) {FactoryGirl.create(:user)}
+  let!(:team) {FactoryGirl.create(:team)}
+  let!(:user) {FactoryGirl.create(:user, team: team)}
+  let!(:job) {FactoryGirl.create(:job, team: team)}
   
   before :each do
     user.confirm!

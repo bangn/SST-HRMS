@@ -1,12 +1,12 @@
 %tr
   %td.col-xs-1
-    = link_to timesheet.working_date.strftime("%d-%m-%Y"), "#", "data-xeditable" => true, "data-pk" => "#{timesheet.id}", "data-type" => "combodate", "data-model" => "timesheet", "data-name" => "working_date", "data-url" => "#{user_timesheet_url(timesheet)}", "data-value" => "#{timesheet.working_date}", "data-title" => "Select date"
+    = x_editable [@user, timesheet], :working_date, :container => :a, :as => "combodate", :title => "Select date"
   %td.column-duration
-    = link_to timesheet.duration, "#", "data-xeditable" => true, "data-pk" => "#{timesheet.id}", "data-type" => "text", "data-model" => "timesheet", "data-name" => "duration", "data-url" => "#{user_timesheet_url(timesheet)}", "data-title" => "Enter duration"
+    = x_editable [@user, timesheet], :duration, :container => :a, :as =>  "text", :title => "Enter duration"
   %td.col-xs-4
-    = link_to "#{timesheet.name}", "#",  "data-xeditable" => true, "data-pk" => "#{timesheet.id}", "data-type" => "select", "data-model" => "timesheet", "data-name" => "job_id", "data-url" => "#{user_timesheet_url(timesheet)}", "data-source" => "#{timesheet.available_jobs.to_json}", "data-title" => "Choose job"
+    = x_editable [@user, timesheet], :job_id, :container => :a, :as => "select", :source => "#{timesheet.available_jobs.to_json}", :display_as => "#{timesheet.job.name if timesheet.job}", :title => "Choose job"
   %td.col-xs-5
-    = link_to timesheet.description, "#", "data-xeditable" => true, "data-pk" => "#{timesheet.id}", "data-type" => "textarea", "data-model" => "timesheet", "data-name" => "description", "data-url" => "#{user_timesheet_url(timesheet)}", "data-title" => "Enter description"
+    = x_editable [@user, timesheet], :description, :container => :a, :as => "textarea", "data-title" => "Enter description"
 
   %td.col-edit
     %span.badge.fa.fa-edit
