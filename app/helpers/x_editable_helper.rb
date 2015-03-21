@@ -8,7 +8,7 @@ module XEditableHelper
     options[:data]['pk'] = model.send(:id)
     options[:data]['model'] = model.class.to_s.downcase
     options[:data]['name'] = field.to_s
-    options[:data]['url'] = "#{url_for (object)}"
+    options[:data]['url'] = opts[:url] ? opts[:url] : "#{url_for (object)}"
     options[:data]['type'] = opts[:as] if opts[:as]
     options[:data]['title'] = opts[:title] if opts[:title]
     options[:data]['source'] = opts[:source] if opts[:source]

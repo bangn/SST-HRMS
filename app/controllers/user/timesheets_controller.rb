@@ -1,7 +1,7 @@
 class User::TimesheetsController < User::UsersController
   before_filter :set_timesheet, only: [:update, :show, :edit, :destroy]
   def index
-    @timesheets = Timesheet.where(user_id: @user.id).order(:working_date).page params[:page]
+    @timesheets = Timesheet.where(user_id: @user.id).order(:working_date => :desc).page params[:page]
   end
   
   def new
@@ -23,7 +23,6 @@ class User::TimesheetsController < User::UsersController
   def update
     respond_to do |format|
       if @timesheet.update timesheet_params
-        binding.pry
         format.html do
           flash[:notice] = "Work log has been updated successfully!"
           redirect_to user_timesheets_path

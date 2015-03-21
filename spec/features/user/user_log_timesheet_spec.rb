@@ -15,12 +15,11 @@ describe 'User log work' do
     sign_in_as!(user)
   end
   
-  it "should create work log", focus: true, driver: :selenium do
+  it "should create work log" do
     click_link "TIMESHEETS"
     click_link "Log work"
 
     select "Test select job from dropdown", from: "Jobs"
-    binding.pry
     select "Working", from: "Type"
     fill_in "Description", with: "This is a test work log"
     fill_in "Duration", with: 2
