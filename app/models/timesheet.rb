@@ -13,6 +13,6 @@ class Timesheet < ActiveRecord::Base
 
   def available_jobs
     return [] if user.available_jobs.blank?
-    user.available_jobs.map {|job| {value: job.id, text: job.name}}
+    user.available_jobs
   end
 end

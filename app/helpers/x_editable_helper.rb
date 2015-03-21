@@ -8,12 +8,16 @@ module XEditableHelper
     options[:data]['pk'] = model.send(:id)
     options[:data]['model'] = model.class.to_s.downcase
     options[:data]['name'] = field.to_s
-    options[:data]['url'] = "#{polymorphic_path (object), format: :json}"
+    options[:data]['url'] = "#{url_for (object)}"
     options[:data]['type'] = opts[:as] if opts[:as]
     options[:data]['title'] = opts[:title] if opts[:title]
     options[:data]['source'] = opts[:source] if opts[:source]
     opts[:display_as] ? display_value = opts[:display_as] : display_value = model.send(field)
     container = opts[:container] || DEFAULT_CONTAINER
     content_tag(container, display_value, options)
+  end
+
+  def to_data_source(array)
+    array.map {|element| {value: element, text: element}}.to_json
   end
 end

@@ -3,8 +3,10 @@
     = x_editable [@user, timesheet], :working_date, :container => :a, :as => "combodate", :title => "Select date"
   %td.column-duration
     = x_editable [@user, timesheet], :duration, :container => :a, :as =>  "text", :title => "Enter duration"
-  %td.col-xs-4
-    = x_editable [@user, timesheet], :job_id, :container => :a, :as => "select", :source => "#{timesheet.available_jobs.to_json}", :display_as => "#{timesheet.job.name if timesheet.job}", :title => "Choose job"
+  %td.col-xs-3
+    = x_editable [@user, timesheet], :job_id, :container => :a, :as => "select", :source => "#{timesheet.available_jobs.map {|job| {value: job.id, text: job.name}}.to_json}", :display_as => "#{timesheet.job.name if timesheet.job}", :title => "Choose job"
+  %td.col-xs-1
+    = x_editable [@user, timesheet], :work_type, :container => :a, :as => "select", :source => "#{to_data_source %w{Working Meeting Training}}", :title => "Choose type"
   %td.col-xs-5
     = x_editable [@user, timesheet], :description, :container => :a, :as => "textarea", "data-title" => "Enter description"
 
@@ -15,5 +17,3 @@
     %span.badge.fa.fa-trash
       = link_to "Delete", "#", :class => "badge", :id => "delete-timesheet-#{timesheet.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{link_for timesheet}"
 
-:javascript
-  enableXEditable();

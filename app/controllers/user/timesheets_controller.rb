@@ -23,6 +23,7 @@ class User::TimesheetsController < User::UsersController
   def update
     respond_to do |format|
       if @timesheet.update timesheet_params
+        binding.pry
         format.html do
           flash[:notice] = "Work log has been updated successfully!"
           redirect_to user_timesheets_path
@@ -54,7 +55,8 @@ class User::TimesheetsController < User::UsersController
       :description,
       :working_date,
       :duration,
-      :job_id
+      :job_id,
+      :work_type
     )
   end
   

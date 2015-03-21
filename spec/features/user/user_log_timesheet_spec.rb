@@ -15,11 +15,13 @@ describe 'User log work' do
     sign_in_as!(user)
   end
   
-  it "should create work log" do
+  it "should create work log", focus: true, driver: :selenium do
     click_link "TIMESHEETS"
     click_link "Log work"
 
     select "Test select job from dropdown", from: "Jobs"
+    binding.pry
+    select "Working", from: "Type"
     fill_in "Description", with: "This is a test work log"
     fill_in "Duration", with: 2
     fill_in "Working date", with: "02-03-2015"
@@ -28,6 +30,7 @@ describe 'User log work' do
 
     user.reload
     user.timesheets.first.job.should == job
+    user.timesheets.first.work_type.should == "Working"
     
     expect(page).to have_content("New work log has been created successfully!")
     expect(page).to have_content("This is a test work log")

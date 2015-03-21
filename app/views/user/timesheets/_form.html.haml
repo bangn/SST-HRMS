@@ -4,6 +4,9 @@
     .form-group
       = render :partial => "public/common/jobs_dropdown", locals: {:f => f, :jobs => @user.available_jobs, :select_id => @timesheet.job_id}
     .form-group
+      = f.label :work_type, "Type"
+      = f.select :work_type, %w{Working Meeting Training}, {}, {class: "form-control"}
+    .form-group
       = f.label :description
       = f.text_area :description, autofocus: true, class: "form-control"
     .form-group
