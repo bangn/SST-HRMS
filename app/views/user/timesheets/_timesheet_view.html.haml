@@ -8,7 +8,7 @@
   %td.col-xs-1
     = x_editable [@user, timesheet], :work_type, :container => :a, :as => "select", :source => "#{to_data_source %w{Working Meeting Training}}", :title => "Choose type", :url => "#{user_timesheet_path timesheet}"
   %td.col-xs-5
-    = x_editable [@user, timesheet], :description, :container => :a, :as => "textarea", "data-title" => "Enter description"
+    = x_editable [@user, timesheet], :description, :container => :a, :as => "textarea", "data-title" => "Enter description", :url => "#{user_timesheet_path timesheet}"
 
   %td.col-edit
     %span.badge.fa.fa-edit
