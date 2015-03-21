@@ -9,22 +9,22 @@ describe "XEditableHelper" do
   it "should generate content tag with span as default container" do
     helper.x_editable([admin,user], :first_name).should == content_tag(:span,
                                                                user.first_name,
-                                                               "data-xeditable" => true,
+                                                               "class" => "editable editable-click",
                                                                "data-pk" => user.id,
                                                                "data-model" => "user",
                                                                "data-name" => "first_name",
-                                                               "data-url" => polymorphic_path([admin, user], format: :json)
+                                                               "data-url" => url_for([admin, user])
                                                               )
   end
   it "should generate content tag with correct data type" do
     helper.x_editable([admin,user], :first_name, as: :text).should == content_tag(:span,
                                                                user.first_name,
-                                                               "data-xeditable" => true,
+                                                               "class" => "editable editable-click",
                                                                "data-pk" => user.id,
                                                                "data-model" => "user",
                                                                "data-name" => "first_name",
                                                                "data-url" => "",
-                                                               "data-url" => polymorphic_path([admin, user], format: :json),
+                                                               "data-url" => url_for([admin, user]),
                                                                "data-type" => "text"
                                                               )
   end
