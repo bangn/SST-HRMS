@@ -1,5 +1,5 @@
 function enableXEditable() {
-  return $("[data-xeditable=true]").each(function() {
+  return $(".editable").each(function() {
     return $(this).editable({
       combodate: {
         format: 'DD-MM-YYYY',

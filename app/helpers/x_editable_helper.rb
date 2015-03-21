@@ -3,8 +3,8 @@ module XEditableHelper
   def x_editable(object, field, opts = {})
     options = {}
     object.kind_of?(Array) ? model = object.last : model = object
+    options[:class] = "editable editable-click"
     options[:data] = HashWithIndifferentAccess.new(opts[:data])
-    options[:data]['xeditable'] = true
     options[:data]['pk'] = model.send(:id)
     options[:data]['model'] = model.class.to_s.downcase
     options[:data]['name'] = field.to_s
