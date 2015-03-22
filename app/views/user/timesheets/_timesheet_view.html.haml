@@ -1,14 +1,14 @@
 %tr
   %td.col-xs-1
-    = x_editable [@user, timesheet], :working_date, :container => :a, :as => "combodate", :title => "Select date", :url => "#{user_timesheet_path timesheet}"
+    = editable [@user, timesheet], :working_date, :type => "combodate", :url => "#{user_timesheet_path timesheet}"
   %td.column-duration
-    = x_editable [@user, timesheet], :duration, :container => :a, :as =>  "text", :title => "Enter duration", :url => "#{user_timesheet_path timesheet}", :url => "#{user_timesheet_path timesheet}"
+    = editable [@user, timesheet], :duration, :type =>  "text", :url => "#{user_timesheet_path timesheet}"
   %td.col-xs-3
-    = x_editable [@user, timesheet], :job_id, :container => :a, :as => "select", :source => "#{timesheet.available_jobs.map {|job| {value: job.id, text: job.name}}.to_json}", :display_as => "#{timesheet.job.name if timesheet.job}", :title => "Choose job", :url => "#{user_timesheet_path timesheet}"
+    = editable [@user, timesheet], :job_id, :type => "select", :source => "#{timesheet.available_jobs.map {|job| {value: job.id, text: job.name}}.to_json}", :url => "#{user_timesheet_path timesheet}"
   %td.col-xs-1
-    = x_editable [@user, timesheet], :work_type, :container => :a, :as => "select", :source => "#{to_data_source %w{Working Meeting Training}}", :title => "Choose type", :url => "#{user_timesheet_path timesheet}"
+    = editable [@user, timesheet], :work_type, :type => "select", :source => %w{Working Meeting Training}, :url => "#{user_timesheet_path timesheet}"
   %td.col-xs-5
-    = x_editable [@user, timesheet], :description, :container => :a, :as => "textarea", "data-title" => "Enter description", :url => "#{user_timesheet_path timesheet}"
+    = editable [@user, timesheet], :description, :type => "textarea", :url => "#{user_timesheet_path timesheet}"
 
   %td.col-edit
     %span.badge.fa.fa-edit
