@@ -7,7 +7,7 @@
 
   - if @timesheets.any?
     %table.table.table-bordered.table-striped
-      - @timesheets.to_a.each do |timesheet|
+      - @timesheets.each do |timesheet|
         = render :partial => "timesheet_view", locals: {:timesheet => timesheet}
 
     .text-center
@@ -15,4 +15,5 @@
       
 = render :partial => "public/common/confirmation"
 :javascript
-  enableXEditable();
+  enableXEditable({
+  });

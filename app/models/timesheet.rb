@@ -7,10 +7,6 @@ class Timesheet < ActiveRecord::Base
   validates :duration, presence: true, length: {minimum: 1}, numericality: {greater_than: 0}
   validates :working_date, presence: true
 
-  def name
-    job.nil? ? "Unknown" : job.name
-  end
-
   def available_jobs
     return [] if user.available_jobs.blank?
     user.available_jobs
