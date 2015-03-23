@@ -22,7 +22,6 @@ describe 'User log work' do
 
     user.reload
     user.leaves.first.leave_type.should == "annual"
-    binding.pry
     user.leaves.first.leave_date.to_s.should =~ /2015-03-23/
     user.leaves.first.duration.should == 8
     
