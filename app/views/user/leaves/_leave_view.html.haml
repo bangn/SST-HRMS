@@ -1,0 +1,19 @@
+%tr
+  %td.col-xs-2
+    = leave.leave_date.strftime("%d-%m-%Y")
+  %td.col-xs-2
+    = leave.leave_type.capitalize
+  %td.col-xs-2
+    = leave.duration
+  %td.col-xs-4
+    = leave.reason
+  %td.col-xs-2
+    = leave.reason
+
+  %td.col-edit
+    %span.badge.fa.fa-edit
+      = link_to "Edit", "#{edit_link_for leave}", :class => "badge", :id => "edit-leave-#{leave.id}"
+  %td.col-delete
+    %span.badge.fa.fa-trash
+      = link_to "Delete", "#", :class => "badge", :id => "delete-leave-#{leave.id}", "data-toggle" => "modal", "data-target" => "#delete-confirmation", "data-href" => "#{link_for leave}"
+

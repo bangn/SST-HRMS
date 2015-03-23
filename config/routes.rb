@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :users
     resources :timesheets
     resources :leaves
+
   end
 
   # mail_view preview

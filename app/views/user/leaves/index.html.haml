@@ -1,1 +1,15 @@
-%h2 Leaves
+.container.clearfix
+  = show_error_messages_if_any [flash[:error]]
+  = show_notice_message_if_any flash[:notice]
+
+  .add-button-link.btn-primary.fa.fa-plus
+    = link_to "Add leave", new_user_leave_path
+
+  - if @leaves.any?
+    %table.table.table-bordered.table-striped
+      - @leaves.each do |leave|
+        = render :partial => "leave_view", locals: {:leave => leave}
+
+    .text-center
+      = paginate @leaves
+

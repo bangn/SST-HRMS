@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, length: {minimum: 8}, :if => :password_required?
   belongs_to :team
   has_many :timesheets
+  has_many :leaves
   
   alias_attribute :name, :email
 
