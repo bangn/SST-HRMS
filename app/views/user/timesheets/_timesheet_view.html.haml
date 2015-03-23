@@ -1,6 +1,6 @@
 %tr
   %td.col-xs-1
-    = editable [@user, timesheet], :working_date, :type => "combodate", :url => "#{user_timesheet_path timesheet}"
+    = editable [@user, timesheet], :working_date, :type => "combodate", value: timesheet.working_date.strftime("%d-%m-%Y"), :url => "#{user_timesheet_path timesheet}"
   %td.column-duration
     = editable [@user, timesheet], :duration, :type =>  "text", :url => "#{user_timesheet_path timesheet}"
   %td.col-xs-3
