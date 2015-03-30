@@ -10,6 +10,7 @@ class User::LeavesController < User::UsersController
   def create
     @leave = Leave.create(leave_params)
     @leave.user = @user
+    @leave.status = State::LEAVE_TYPE[:new]
     if @leave.save
       flash[:notice] = "New leave has been created successfully!"
       redirect_to user_leaves_path
