@@ -1,6 +1,6 @@
 %tr
   %td.col-xs-2
-    = leave.leave_date.strftime("%d-%m-%Y")
+    = format_date(leave.leave_date)
   %td.col-xs-2
     = leave.leave_type.capitalize
   %td.col-xs-2

@@ -3,7 +3,7 @@
     = show_error_messages_if_any @leave.errors.full_messages
     .form-group
       = f.label :leave_date
-      = f.text_field :leave_date, autofocus: true, class: "form-control datepicker", value: @leave.leave_date ? @leave.leave_date.strftime("%d-%m-%Y") : Date.today.strftime("%d-%m-%Y")
+      = f.text_field :leave_date, autofocus: true, class: "form-control datepicker", value: @leave.leave_date ? format_date(@leave.leave_date) : format_date(Date.today)
     .form-group
       = f.label :leave_type, "Type"
       = f.select :leave_type, %w{Annual Sick Unpaid}, {}, {class: "form-control"}
