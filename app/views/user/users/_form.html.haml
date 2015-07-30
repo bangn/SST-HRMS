@@ -1,8 +1,11 @@
 .article
-  = form_for([:user, @user], html: {class: "form-default"}) do |f|
+  = form_for([:user, @user], html: {multipart: true, class: "form-default"}) do |f|
     = show_error_messages_if_any [flash[:error]]
     = show_error_messages_if_any @user.errors.full_messages
     = show_notice_message_if_any flash[:notice]
+    .form-group
+      = image_tag @user.picture.url if @user.picture?
+      = f.file_field :picture, class: "btn"
     .form-group
       = f.label :email
       = f.email_field :email, autofocus: true, class: "form-control", disabled: true

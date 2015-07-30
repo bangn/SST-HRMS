@@ -6,9 +6,12 @@ class User < ActiveRecord::Base
          :validatable, :confirmable, :lockable
   paginates_per 10
   validates :password_confirmation, presence: true, length: {minimum: 8}, :if => :password_required?
+  validate :picture_size
   belongs_to :team
   has_many :timesheets
   has_many :leaves
+
+  mount_uploader :picture, PictureUploader
   
   alias_attribute :name, :email
 
@@ -26,5 +29,11 @@ class User < ActiveRecord::Base
   
   def available_jobs
     self.team.jobs.where.not(state_id: State::TYPES[:completed]).order(:id) if self.team
+  end
+
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "should be less than 5MB")
+    end
   end
 end
