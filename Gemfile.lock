@@ -393,6 +393,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   fog
+  fog-aws
   fuubar
   guard-jasmine!
   guard-rspec
