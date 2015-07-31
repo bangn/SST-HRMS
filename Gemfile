@@ -18,6 +18,7 @@ gem "x-editable-rails"
 gem "carrierwave"
 gem "mini_magick"
 gem "fog"
+gem "fog-aws"
 
 group :development do
   gem "spring"
