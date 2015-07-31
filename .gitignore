@@ -18,3 +18,4 @@
 *.swp
 *.un\~
 /config/application.yml
+/public/uploads
