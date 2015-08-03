@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable, :lockable
   paginates_per 10
+  
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
   validates :password_confirmation, presence: true, length: {minimum: 8}, :if => :password_required?
   belongs_to :team
   has_many :timesheets

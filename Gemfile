@@ -15,6 +15,8 @@ gem 'thin'
 gem 'mail_view'
 gem 'auto_strip_attributes'
 gem 'x-editable-rails'
+gem 'paperclip'
+gem 'fog'
 
 group :development do
   gem 'spring'
