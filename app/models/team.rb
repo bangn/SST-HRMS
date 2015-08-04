@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  has_many :users
+  has_many :members, class_name: 'User'
   has_many :jobs
   paginates_per 10
   auto_strip_attributes :name, :squish => true

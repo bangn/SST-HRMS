@@ -35,7 +35,7 @@ class Admin::TeamsController < Admin::AdminsController
     team_name = @team.name
     team_id = @team.id
     if @team.destroy
-      remove_team_id_of @team.users, team_id
+      remove_team_id_of @team.members, team_id
       remove_team_id_of @team.jobs, team_id
       flash[:notice] = "#{team_name} has been successfully deleted!"
     else
