@@ -1,3 +1,6 @@
 test:
+  username: postgres
+  password:
+  encoding: utf8
   adapter: postgresql
   database: travis_ci_test
