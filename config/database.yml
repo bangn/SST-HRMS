@@ -6,11 +6,8 @@
 #
 default: &default
   adapter: postgresql
-  pool: 5
-  username: postgres
+  username: bangn
   password:
-  host: db
-  port: 5432
   encoding: utf8
 
 development:
