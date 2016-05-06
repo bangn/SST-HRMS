@@ -7,4 +7,4 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
 addons:
-  firefox: "39.0"
+  firefox: "46.0"
