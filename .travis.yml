@@ -10,3 +10,5 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 addons:
   firefox: "46.0"
+script:
+- xvfb-run --server-args="-screen 0 1024x768x24" bundle exec rspec
